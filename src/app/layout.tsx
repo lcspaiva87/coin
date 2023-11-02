@@ -23,6 +23,7 @@ export default function RootLayout({
       <body className={roboto.className}>
         <QueryProvider>{children}</QueryProvider>
       </body>
+  
     </html>
   );
 }

@@ -1,3 +1,4 @@
+import { Footer } from "@/components/ui/footer";
 import { Header } from "@/components/ui/header";
 import Image from "next/image";
 import { SectionNewsLetter } from "./components/NewsLetter";
@@ -23,6 +24,7 @@ export default async function Home() {
       <Solutions />
       <TopCryptos  />
       <SectionNewsLetter />
+      <Footer />
     </>
   );
 }
