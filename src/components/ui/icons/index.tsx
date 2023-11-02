@@ -1,4 +1,5 @@
 import { ArrowRight } from './ArrowRight'
+import { Atom } from "./Atom"
 import { Balance } from './Balance'
 import { Chart } from './Chart'
 import { ChevronDown } from './ChevronDown'
@@ -35,4 +36,5 @@ export const Icons = {
   NoWallets,
   Trade,
   CircledArrowLeft,
+  Atom
 }
