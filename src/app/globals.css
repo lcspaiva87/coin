@@ -15,6 +15,11 @@ html {
 body {
   @apply h-full;
 }
+.cryptoTable {
+  @apply grid grid-cols-[1fr_auto] md:grid-cols-[60px_2fr_1fr_1fr_80px] lg:grid-cols-[100px_2fr_1fr_1fr_100px]
+}
+
+
 
 .opacity-mask {
   mask-image: linear-gradient(
