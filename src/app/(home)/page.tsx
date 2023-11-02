@@ -1,5 +1,6 @@
 import { Header } from "@/components/ui/header";
 import Image from "next/image";
+import { SectionNewsLetter } from "./components/NewsLetter";
 import Hero from "./components/hero";
 import Solutions from "./components/solutions";
 import { TopCryptos } from "./components/topCryptos";
@@ -21,6 +22,7 @@ export default async function Home() {
       />
       <Solutions />
       <TopCryptos  />
+      <SectionNewsLetter />
     </>
   );
 }
