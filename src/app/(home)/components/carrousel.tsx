@@ -3,7 +3,8 @@ import { ListCoinData } from '@/@types/typeCoins'
 
 import clsx from 'clsx'
 import Marquee from 'react-fast-marquee'
-import FormattedNumber from './FormattedNumber'
+import FormattedNumber from './formattedNumber'
+
 export function CoinCarrousel({
   coinList,
   className,
@@ -40,7 +41,6 @@ export function CoinCarrousel({
 }
 
 const Coin = ({ coinList }: { coinList: ListCoinData }) => {
-  console.log('coinList', coinList)
   return (
     <div
       className="flex flex-shrink-0 items-center gap-2 px-3 text-small-label"
