@@ -1,7 +1,8 @@
 
 import Image from 'next/image'
+import { NewsLetterForm } from './formNewsLetter'
 
-export async function SectionNewsLetter() {
+export async function NewsLetter() {
   return (
     <section className="bg-gradient-newsletter relative mt-14 text-white">
       <Image
@@ -26,7 +27,7 @@ export async function SectionNewsLetter() {
             porttitor
           </p>
         </div>
-
+        <NewsLetterForm />
     
       </div>
     </section>

@@ -15,7 +15,7 @@ export type Props = {
 const defaultClassName = 'text-label'
 
 export const primaryClassName =
-  'bg-primary-400 disabled:bg-secondary text-white py-[0.5rem] px-[1rem] text-sm	 rounded-full hover:bg-primary-400 active:bg-primary-600 transition-colors focus:outline-none focus-visible:ring focus-visible:ring-secondary'
+  'bg-primary-500 disabled:bg-secondary text-white py-[0.5rem] px-[1rem] text-sm	 rounded-full hover:bg-primary-400 active:bg-primary-600 transition-colors focus:outline-none focus-visible:ring focus-visible:ring-secondary'
 const ghostClassName =
   'bg-transparent hover:underline active:text-secondary-900 transition-colors text-sm	'
 
