@@ -4,9 +4,9 @@ import { Icons } from "@/components/ui/icons";
 import * as SheetPrimitive from "@radix-ui/react-dialog";
 import Link from "next/link";
 import { useState } from "react";
-
 export function DropdownMenu() {
   const [isOpen, setIsOpenModal] = useState(false);
+  const SheetClose = SheetPrimitive.Close;
 
   return (
     <div className="ml-auto  md:block  ">
@@ -36,15 +36,14 @@ export function DropdownMenu() {
           >
             Sign up
           </Button>
-          <SheetPrimitive.Close>
+          <SheetClose>
             <button
               aria-label="Close navigation menu"
               className="mt-[14px] w-max"
-              onClick={() => setIsOpenModal(false)}
             >
               <Icons.CircledArrowLeft className="h-6 w-6 rotate-180 transform" />
             </button>
-          </SheetPrimitive.Close>
+          </SheetClose>
         </div>
       </button>
       <div className="hidden w-full  items-center gap-[1.5rem] md:flex ">

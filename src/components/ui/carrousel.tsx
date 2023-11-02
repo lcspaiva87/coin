@@ -1,16 +1,16 @@
-'use client'
-import { ListCoinData } from '@/@types/typeCoins'
-import FormattedNumber from '@/components/FormattedNumber'
-import clsx from 'clsx'
-import Marquee from 'react-fast-marquee'
+"use client";
+import { ListCoinData } from "@/@types/typeCoins";
+import FormattedNumber from "@/app/(home)/components/formattedNumber";
+
+import clsx from "clsx";
 export function CoinCarrousel({
   coinList,
   className,
   isLoading = true,
 }: {
-  coinList: ListCoinData[]
-  className: string
-  isLoading: boolean
+  coinList: ListCoinData[];
+  className: string;
+  isLoading: boolean;
 }) {
   return (
     <>
@@ -24,22 +24,22 @@ export function CoinCarrousel({
           ))}
         </div>
       ) : (
-        <div className={clsx('mx-2 px-4 py-[5px]', className)}>
+        <div className={clsx("mx-2 px-4 py-[5px]", className)}>
           <div className="coin-carrousel-opacity-mask overflow-hidden ">
-            <Marquee>
+            <div className="flex flex-row">
               {coinList.map((item: ListCoinData, index: number) => (
                 <Coin coinList={item} key={String(index)} />
               ))}
-            </Marquee>
+            </div>
           </div>
         </div>
       )}
     </>
-  )
+  );
 }
 
 const Coin = ({ coinList }: { coinList: ListCoinData }) => {
-  console.log('coinList', coinList)
+  console.log("coinList", coinList);
   return (
     <div
       className="flex flex-shrink-0 items-center gap-2 px-3 text-small-label"
@@ -48,19 +48,19 @@ const Coin = ({ coinList }: { coinList: ListCoinData }) => {
       <span className="text-secondary-800">{coinList?.symbol}</span>
       <span
         className={clsx({
-          'text-tertiary-700': Number(coinList.priceChange) >= 0,
-          'text-quaternary-500': Number(coinList.priceChange) < 0,
+          "text-tertiary-700": Number(coinList.priceChange) >= 0,
+          "text-quaternary-500": Number(coinList.priceChange) < 0,
         })}
       >
         <FormattedNumber
           number={Number(coinList.priceChange)}
           options={{
-            signDisplay: 'always',
+            signDisplay: "always",
             minimumFractionDigits: 3,
             maximumFractionDigits: 3,
           }}
         />
       </span>
     </div>
-  )
-}
+  );
+};
