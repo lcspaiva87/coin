@@ -9,7 +9,7 @@ import { TopCryptos } from "./components/topCryptos";
 
 export default async function Home() {
   const data = deeze()
-  console.log(data)
+  console.log("deeze",data)
   return (
     <>
       <Header />

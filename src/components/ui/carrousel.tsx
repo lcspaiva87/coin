@@ -42,7 +42,7 @@ export function CoinCarrousel({
 }
 
 const Coin = ({ coinList }: { coinList: ListCoinData }) => {
-  console.log("coinList", coinList);
+
   return (
     <div
       className="flex flex-shrink-0 items-center gap-2 px-3 text-small-label"
