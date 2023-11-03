@@ -14,7 +14,7 @@ export function Carrousel({
 }) {
   return (
     <div className="col-span-2 row-start-2 flex  w-full items-center justify-center border-t border-secondary-200 lg:col-span-1 lg:row-start-auto lg:h-full lg:justify-end lg:border-none ">
-      <div className={clsx("mx-2 px-4 py-[5px]")}>
+      <div className="mx-2 px-0 lg:px-4 py-0 lg:py-[5px]">
         <div className="ml-auto max-w-[450px] ">
           {isLoading ? (
             <div className=" flex animate-pulse gap-3 pr-[1rem]">
