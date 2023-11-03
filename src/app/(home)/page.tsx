@@ -1,6 +1,6 @@
 import { Footer } from "@/components/ui/footer";
 import { Header } from "@/components/ui/header";
-import { deeze } from "@/data/fetchCoin";
+import axios from "axios";
 import Image from "next/image";
 import Hero from "./components/hero";
 import { NewsLetter } from "./components/newsLetter";
@@ -8,12 +8,22 @@ import Solutions from "./components/solutions";
 import { TopCryptos } from "./components/topCryptos";
 
 export default async function Home() {
-  const data = deeze()
-  console.log("deeze",data)
+  const response = await axios.get(
+    'https://api.deezer.com/search?q=Black%20sabah',
+  )
+
+  const List = response.data
   return (
     <>
       <Header />
       <Hero />
+      <ul>
+        {List.data.map((item: any) => (
+          <li key={item.id}>
+            {item.title}
+          </li>
+        ))}
+      </ul>
       <Image
         src="/waves.svg"
         alt=""
