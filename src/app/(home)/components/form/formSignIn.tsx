@@ -23,7 +23,7 @@ const signInFormSchema = yup.object().shape({
 });
 
 export function FormLogin() {
-  const { mutate:loginMutation,isLoading:loading } = userFetch();
+  const { mutate: loginMutation, isLoading: loading } = userFetch();
   const {
     handleSubmit,
     control,
@@ -46,14 +46,11 @@ export function FormLogin() {
             enqueueSnackbar(error.response.data.message);
           });
         },
-      }
+      },
     );
   }
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="mt-10">
-      <h2 className="text-center">
-        Sign in to <BrandName />
-      </h2>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <Input
         dataTest="data-email-signin"
         type="email"
@@ -61,7 +58,7 @@ export function FormLogin() {
         placeholder="Email"
         required
         control={control}
-        disabled={loading }
+        disabled={loading}
       />
       <Input
         dataTest="data-password-signin"
@@ -71,7 +68,7 @@ export function FormLogin() {
         className="mt-6"
         required
         control={control}
-        disabled={loading }
+        disabled={loading}
       />
       <Link
         href="#"
@@ -83,7 +80,7 @@ export function FormLogin() {
         dataTest="data-button-signin"
         className="mt-4 w-full py-3"
         type="submit"
-        disabled={loading }
+        disabled={loading}
       >
         {loading ? <LoadingSpinner className="mx-auto" /> : " Sign in"}
       </Button>
