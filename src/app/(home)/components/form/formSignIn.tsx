@@ -6,6 +6,7 @@ import { LoadingSpinner } from "@/components/ui/loadingSpinner";
 import { userFetch } from "@/hooks/user";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Link from "next/link";
+import { enqueueSnackbar } from "notistack";
 
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
@@ -22,7 +23,7 @@ const signInFormSchema = yup.object().shape({
 });
 
 export function FormLogin() {
-  const { loginMutation, isLoading } = userFetch();
+  const { mutate:loginMutation,isLoading:loading } = userFetch();
   const {
     handleSubmit,
     control,
@@ -35,9 +36,18 @@ export function FormLogin() {
       password: "",
     },
   });
-  console.log("isLoading",isLoading)
+
   async function onSubmit({ email, password }: FormValues) {
-      await loginMutation.mutateAsync({ email, password });
+    loginMutation(
+      { email, password },
+      {
+        onError: (error: any) => {
+          Object.keys(error?.response?.data).forEach((field: any) => {
+            enqueueSnackbar(error.response.data.message);
+          });
+        },
+      }
+    );
   }
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="mt-10">
@@ -51,7 +61,7 @@ export function FormLogin() {
         placeholder="Email"
         required
         control={control}
-     
+        disabled={loading }
       />
       <Input
         dataTest="data-password-signin"
@@ -61,7 +71,7 @@ export function FormLogin() {
         className="mt-6"
         required
         control={control}
-
+        disabled={loading }
       />
       <Link
         href="#"
@@ -70,12 +80,12 @@ export function FormLogin() {
         Forgot password?
       </Link>
       <Button
+        dataTest="data-button-signin"
         className="mt-4 w-full py-3"
         type="submit"
-  
-        dataTest={""}
+        disabled={loading }
       >
-        {isLoading ? <LoadingSpinner className="mx-auto" /> : " Sign in"}
+        {loading ? <LoadingSpinner className="mx-auto" /> : " Sign in"}
       </Button>
       <div className="mt-4 text-small-label">
         <span className=" md:inline">Don{"'"}t have an account? </span>

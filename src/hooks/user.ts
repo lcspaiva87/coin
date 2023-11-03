@@ -1,10 +1,9 @@
 'use client'
-import { fetchCoin } from '@/data/fetchCoin';
 import { fetchLogin } from '@/data/use';
 import Cookie from 'js-cookie';
 import { useRouter } from 'next/navigation';
 import { enqueueSnackbar } from "notistack";
-import { useMutation, useQuery, useQueryClient } from 'react-query';
+import { useMutation, useQueryClient } from 'react-query';
 
 export const userFetch = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -12,7 +11,7 @@ export const userFetch = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const router = useRouter()
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const loginMutation = useMutation(fetchLogin,{
+ return  useMutation(fetchLogin,{
     onError: () => {
       enqueueSnackbar("Erro ao salvar Task, tente novamente", {
         variant: "error",
@@ -24,17 +23,5 @@ export const userFetch = () => {
       router.push('/dashboard')
     },
   })
-  const {
-    isLoading,
-    isError,
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  } = useQuery({
-    queryKey: ['user'],
-    queryFn: () => fetchCoin(),
-  })
-  return {
-    isLoading,
-    isError,
-    loginMutation
-  }
+
 }
