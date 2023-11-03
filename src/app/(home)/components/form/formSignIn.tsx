@@ -50,7 +50,7 @@ export function FormLogin() {
     );
   }
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} >
       <Input
         dataTest="data-email-signin"
         type="email"
@@ -84,7 +84,7 @@ export function FormLogin() {
       >
         {loading ? <LoadingSpinner className="mx-auto" /> : " Sign in"}
       </Button>
-      <div className="mt-4 text-small-label">
+      <div className="mt-4 text-small-label text-center">
         <span className=" md:inline">Don{"'"}t have an account? </span>
         <button className="font-bold hover:underline">
           Sign in to <BrandName />

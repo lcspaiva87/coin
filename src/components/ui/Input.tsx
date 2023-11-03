@@ -58,7 +58,6 @@ export const Input = ({
     const inputValue = e.target.value
     setError(validateInput(inputValue))
   }
-
   return (
     <Controller
       name={name}
@@ -68,7 +67,7 @@ export const Input = ({
         <label className="flex w-full flex-col">
           <div
             className={clsx(
-              'flex w-full items-center gap-2 rounded-lg border border-secondary-300 p-3 ring-primary-200 transition-colors focus-within:border focus-within:border-primary focus-within:ring',
+              'flex w-full items-center gap-2 rounded-lg border border-secondary-300 p-3 transition-colors  focus-within:border-primary-300',
               className,
               { 'bg-secondary-200': disabled },
             )}
