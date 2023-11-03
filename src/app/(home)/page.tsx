@@ -1,5 +1,6 @@
 import { Footer } from "@/components/ui/footer";
 import { Header } from "@/components/ui/header";
+import { deeze } from "@/data/fetchCoin";
 import Image from "next/image";
 import Hero from "./components/hero";
 import { NewsLetter } from "./components/newsLetter";
@@ -7,6 +8,8 @@ import Solutions from "./components/solutions";
 import { TopCryptos } from "./components/topCryptos";
 
 export default async function Home() {
+  const data = deeze()
+  console.log(data)
   return (
     <>
       <Header />

@@ -3,6 +3,7 @@ import { ListCoinData } from "@/@types/typeCoins";
 import FormattedNumber from "@/app/(home)/components/formattedNumber";
 
 import clsx from "clsx";
+import Marquee from "react-fast-marquee";
 export function CoinCarrousel({
   coinList,
   className,
@@ -26,11 +27,13 @@ export function CoinCarrousel({
       ) : (
         <div className={clsx("mx-2 px-4 py-[5px]", className)}>
           <div className="coin-carrousel-opacity-mask overflow-hidden ">
-            <div className="flex flex-row">
-              {coinList.map((item: ListCoinData, index: number) => (
-                <Coin coinList={item} key={String(index)} />
-              ))}
-            </div>
+            <Marquee>
+              <div className="flex flex-row">
+                {coinList.map((item: ListCoinData, index: number) => (
+                  <Coin coinList={item} key={String(index)} />
+                ))}
+              </div>
+            </Marquee>
           </div>
         </div>
       )}
