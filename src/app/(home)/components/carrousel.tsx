@@ -13,7 +13,7 @@ export function Carrousel({
   isLoading: boolean;
 }) {
   return (
-    <div className="col-span-2 row-start-2 flex h-6 w-full items-center justify-center border-t border-secondary-200 lg:col-span-1 lg:row-start-auto lg:h-full lg:justify-end lg:border-none mt-2">
+    <div className="col-span-2 row-start-2 flex  w-full items-center justify-center border-t border-secondary-200 lg:col-span-1 lg:row-start-auto lg:h-full lg:justify-end lg:border-none ">
       <div className={clsx("mx-2 px-4 py-[5px]")}>
         <div className="ml-auto max-w-[450px] ">
           {isLoading ? (
