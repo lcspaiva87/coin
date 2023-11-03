@@ -3,10 +3,10 @@ import { useCoin } from "@/hooks/useCoin";
 
 import { DropdownMenu } from "@/app/(home)/components/dropdownMenu";
 
+import { Carrousel } from "@/app/(home)/components/carrousel";
 import { Sign } from "@/app/(home)/components/sign";
 import Image from "next/image";
 import Link from "next/link";
-import { CoinCarrousel } from "./carrousel";
 import { Icons } from "./icons";
 import { Sheet, SheetContent, SheetTrigger } from "./sheet";
 
@@ -35,16 +35,7 @@ export function Header() {
           </Link>
         </nav>
       </div>
-      <div
-        className="col-span-2 row-start-2 flex h-6 w-full items-center justify-center border-t border-secondary-200
-        lg:col-span-1 lg:row-start-auto lg:h-full lg:justify-end lg:border-none  mt-2 "
-      >
-        <CoinCarrousel
-          className="ml-auto max-w-[450px] "
-          coinList={data}
-          isLoading={isLoading}
-        />
-      </div>
+      <Carrousel coinList={data} isLoading={isLoading} />
       <div className="flex w-full items-center">
         <div className="ml-auto  md:block  lg:hidden ">
           <Sheet>

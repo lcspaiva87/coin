@@ -1,6 +1,5 @@
 import { Footer } from "@/components/ui/footer";
 import { Header } from "@/components/ui/header";
-import axios from "axios";
 import Image from "next/image";
 import Hero from "./components/hero";
 import { NewsLetter } from "./components/newsLetter";
@@ -9,8 +8,6 @@ import { TopCryptos } from "./components/topCryptos";
 
 export default async function Home() {
 
-
-  const List = response.data
   return (
     <>
       <Header />
