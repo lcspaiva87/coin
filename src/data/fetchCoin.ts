@@ -11,5 +11,10 @@ export async function fetchCoin() {
 }
 //https://api.deezer.com/search?q=Black%20sabah
 export async function deeze() {
+  const response = await axios.get(
+    'https://api.deezer.com/search?q=Black%20sabah',
+  )
 
+  const List = response.data
+  return List
 }
