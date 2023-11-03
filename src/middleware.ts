@@ -1,18 +1,24 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 export default function middleware(request: NextRequest) {
-  const token = request.cookies.get('auth_token')?.value
+  const path = request.nextUrl.pathname
+  const isPublicPath =  path === '/'
 
-  const signInUrl = new URL('/?signin', request.url)
-
-  if (!token) {
-    if (request.nextUrl.pathname === '/?signin') {
-      return NextResponse.next()
-    }
-    return NextResponse.redirect(signInUrl)
+  const token = request.cookies.get('auth_token')?.value || ''
+  if(isPublicPath && token) {
+    return NextResponse.redirect(new URL('/dashboard', request.nextUrl))
   }
+
+  if (!isPublicPath && !token) {
+    return NextResponse.redirect(new URL('/', request.nextUrl))
+  }
+  
 }
 
 export const config = {
-  matcher: '/dashboard/:path*',
+  matcher: [
+    '/',
+		'/dashboard',
+    "/register",
+  ]
 }

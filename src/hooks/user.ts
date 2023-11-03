@@ -20,10 +20,8 @@ export const userFetch = () => {
     },
     onSuccess: (data) => {
       const cookieExpiresInSeconds = 60 * 60 * 24 * 30
-  
       Cookie.set('auth_token', data.token, { expires: cookieExpiresInSeconds })
       router.push('/dashboard')
-      enqueueSnackbar("Task criada com sucesso!", { variant: "success" });
     },
   })
   const {

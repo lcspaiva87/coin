@@ -35,14 +35,12 @@ export function FormLogin() {
       password: "",
     },
   });
-  console.log(errors);
+  console.log("isLoading",isLoading)
   async function onSubmit({ email, password }: FormValues) {
-   
       await loginMutation.mutateAsync({ email, password });
-    
   }
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} className="mt-10">
       <h2 className="text-center">
         Sign in to <BrandName />
       </h2>
@@ -53,7 +51,7 @@ export function FormLogin() {
         placeholder="Email"
         required
         control={control}
-        disabled={isLoading}
+     
       />
       <Input
         dataTest="data-password-signin"
@@ -63,7 +61,7 @@ export function FormLogin() {
         className="mt-6"
         required
         control={control}
-        disabled={isLoading}
+
       />
       <Link
         href="#"
