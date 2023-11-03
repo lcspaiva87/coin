@@ -5,8 +5,10 @@ import { fetchLogin } from '@/data/use';
 import { enqueueSnackbar } from "notistack";
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 
-export const useCoin = () => {
+export const userFetch = () => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const queryClient = useQueryClient();
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const loginMutation = useMutation(fetchLogin,{
     onError: () => {
       enqueueSnackbar("error when logging in", {
@@ -24,6 +26,7 @@ export const useCoin = () => {
   const {
     isLoading,
     isError,
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   } = useQuery({
     queryKey: ['user'],
     queryFn: () => fetchCoin(),
