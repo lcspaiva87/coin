@@ -20,6 +20,9 @@ dependencies:
   '@tailwindcss/forms':
     specifier: ^0.5.6
     version: 0.5.6(tailwindcss@3.3.5)
+  '@types/js-cookie':
+    specifier: ^3.0.5
+    version: 3.0.5
   axios:
     specifier: ^1.6.0
     version: 1.6.0
@@ -706,6 +709,10 @@ packages:
     dependencies:
       mini-svg-data-uri: 1.4.4
       tailwindcss: 3.3.5
+    dev: false
+
+  /@types/js-cookie@3.0.5:
+    resolution: {integrity: sha512-dtLshqoiGRDHbHueIT9sjkd2F4tW1qPSX2xKAQK8p1e6pM+Z913GM1shv7dOqqasEMYbC5zEaClJomQe8OtQLA==}
     dev: false
 
   /@types/json-schema@7.0.14:

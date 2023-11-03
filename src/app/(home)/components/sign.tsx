@@ -1,12 +1,10 @@
-import { BrandName } from "@/components/brandName";
-import { Input } from "@/components/ui/Input";
 import Button from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { userFetch } from "@/hooks/user";
 import { yupResolver } from "@hookform/resolvers/yup";
-import Link from "next/link";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
+import { FormLogin } from "./form/formSignIn";
 type FormValues = {
   email: string;
   password: string;
@@ -20,7 +18,7 @@ const signInFormSchema = yup.object().shape({
 });
 
 export function Sign() {
-  const { loginMutation,isLoading} = userFetch();
+  const { loginMutation, isLoading } = userFetch();
   const {
     handleSubmit,
     control,
@@ -33,81 +31,41 @@ export function Sign() {
       password: "",
     },
   });
-  async function handleSignIn({ email, password }: FormValues) {
+  console.log(errors);
+  async function onSubmit({ email, password }: FormValues) {
     try {
       await loginMutation.mutateAsync({ email, password });
     } catch (error) {
-      setError("email", {
-        type: "manual",
-        message: "E-mail ou senha incorretos",
-      });
+      alert("email");
     }
   }
   return (
-    <Dialog>
-      <div className="hidden w-full  items-center gap-[1.5rem] md:flex ">
-        <DialogTrigger asChild>
-          <Button
-            variant="ghost"
-            dataTest="button-sign-in"
-            // onClick={() => setModalModalSignInToOpen(true)}
-          >
-            Sign in
-          </Button>
-        </DialogTrigger>
-        <DialogContent className="sm:max-w-[20rem] bg-white border-none items-center flex flex-col">
-          <form onSubmit={handleSubmit(handleSignIn)}>
-            <h2 className="text-center">
-              Sign in to <BrandName />
-            </h2>
-            <Input
-              dataTest="data-email-signin"
-              type="email"
-              name="email"
-              placeholder="Email"
-              required
-              control={control}
-              disabled={isLoading}
-            />
-            <Input
-               dataTest="data-password-signin"
-               type="password"
-               name="password"
-               placeholder="Password"
-               className="mt-6"
-               required
-               control={control}
-               disabled={isLoading}
-            />
-            <Link
-              href="#"
-              className="ml-auto mt-[9px] block w-max text-small-label text-secondary hover:underline"
-            >
-              Forgot password?
-            </Link>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Dialog>
+        <div className="hidden w-full  items-center gap-[1.5rem] md:flex ">
+          <DialogTrigger asChild>
             <Button
-              dataTest="data-button-signin"
-              className="mt-4 w-full py-3"
-              type="submit"
+              variant="ghost"
+              dataTest="button-sign-in"
+              // onClick={() => setModalModalSignInToOpen(true)}
             >
               Sign in
             </Button>
-            <div className="mt-4 text-small-label">
-              <span className=" md:inline">Don{"'"}t have an account? </span>
-              <button className="font-bold hover:underline">
-                Sign in to <BrandName />
-              </button>
-            </div>
-          </form>
-        </DialogContent>
-        <Button
-          dataTest="button-sign-up"
-          // onClick={() => setModalSignUpOpen(true)}
-          className="text-label"
-        >
-          Sign up
-        </Button>
-      </div>
-    </Dialog>
+          </DialogTrigger>
+
+          <DialogContent className="sm:max-w-[20rem] bg-white border-none items-center flex flex-col">
+           <FormLogin />
+          </DialogContent>
+
+          <Button
+            dataTest="button-sign-up"
+            // onClick={() => setModalSignUpOpen(true)}
+            className="text-label"
+          >
+            Sign up
+          </Button>
+        </div>
+      </Dialog>
+    </form>
   );
 }

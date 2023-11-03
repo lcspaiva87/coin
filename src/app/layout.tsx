@@ -1,4 +1,5 @@
 import { QueryProvider } from "@/provider/queryProvider";
+import { SnackbarProvider } from "@/provider/snackbarProvider";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
@@ -21,9 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.className}>
-        <QueryProvider>{children}</QueryProvider>
+        <SnackbarProvider>
+          <QueryProvider>{children}</QueryProvider>
+        </SnackbarProvider>
       </body>
-  
     </html>
   );
 }
