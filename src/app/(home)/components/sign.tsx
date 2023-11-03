@@ -22,7 +22,7 @@ export function Sign() {
           </Button>
         </DialogTrigger>
 
-        <DialogContent className=" bg-white border-none flex flex-col w-[20rem]">
+        <DialogContent className=" bg-white border-none flex flex-col lg:w-[20rem] w-100 md:w-100">
           <DialogHeader>
             <span className="text-center">
               Sign in to <BrandName />
