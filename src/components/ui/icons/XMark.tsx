@@ -6,7 +6,7 @@ export const XMark = ({ className }: { className?: string }) => {
       xmlns="http://www.w3.org/2000/svg"
       width="16"
       height="16"
-      className={clsx('fill-secondary', className)}
+      className={clsx('fill-secondary-400', className)}
     >
       <path
         fillRule="evenodd"

@@ -1,18 +1,24 @@
-'use client';
+"use client";
 
-import clsx from 'clsx';
-import FocusTrap from 'focus-trap-react';
-import { AnimatePresence, motion } from 'framer-motion';
-import { Dispatch, SetStateAction, useCallback, useEffect, useRef } from 'react';
+import clsx from "clsx";
+import FocusTrap from "focus-trap-react";
+import { AnimatePresence, motion } from "framer-motion";
+import {
+  Dispatch,
+  SetStateAction,
+  useCallback,
+  useEffect,
+  useRef,
+} from "react";
 
- interface ModalProps {
+interface ModalProps {
   children: React.ReactNode;
   showModal: boolean;
   setShowModal: Dispatch<SetStateAction<boolean>>;
   containerClasses?: string;
 }
 
-export default function Modal({
+export function ModalNU({
   children,
   showModal,
   setShowModal,
@@ -22,7 +28,7 @@ export default function Modal({
 
   const onKeyDown = useCallback(
     (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
+      if (e.key === "Escape") {
         setShowModal(false);
       }
     },
@@ -30,8 +36,8 @@ export default function Modal({
   );
 
   useEffect(() => {
-    document.addEventListener('keydown', onKeyDown);
-    return () => document.removeEventListener('keydown', onKeyDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
   }, [onKeyDown]);
 
   return (
@@ -54,7 +60,7 @@ export default function Modal({
             >
               <div
                 className={clsx(
-                  `overflow relative w-full max-w-lg transform rounded-xl border border-gray-200 bg-white p-6 text-left shadow-2xl transition-all`,
+                  `relative w-full max-w-xs transform rounded-lg bg-white p-6 shadow-xl transition-all`,
                   containerClasses,
                 )}
               >
@@ -75,3 +81,5 @@ export default function Modal({
     </AnimatePresence>
   );
 }
+
+

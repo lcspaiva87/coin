@@ -49,7 +49,7 @@ export function FormLogin() {
     );
   }
   return (
-    <form onSubmit={handleSubmit(onSubmit)} >
+    <form onSubmit={handleSubmit(onSubmit)}  className="mt-[1.5rem]">
 
       <Input
         dataTest="data-email-signin"
