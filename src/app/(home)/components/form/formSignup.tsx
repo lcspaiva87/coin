@@ -18,7 +18,7 @@ type FormValues = {
   password_confirmation?: string
 }
 
-export function SignUpForm() {
+export function FormSignUp() {
   const { mutate, isLoading: loading } = userRegister()
   const CreateUserFormSchema = yup.object().shape({
     name: yup.string().required('Nome obrigatório'),

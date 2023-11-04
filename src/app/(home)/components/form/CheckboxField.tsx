@@ -25,7 +25,7 @@ export function CheckboxField({
           <input
             data-testid={dataTest}
             type="checkbox"
-            className="mr-4 rounded-[4px] border-primary text-primary accent-primary focus:ring-primary disabled:text-secondary"
+            className="mr-4 rounded-[4px] border-primary-400 text-primary-400 accent-primary focus:ring-primary-400 disabled:text-secondary"
             {...field}
           />
         )}

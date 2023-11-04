@@ -25,7 +25,7 @@ export const fetchLogin= async ({email,password}:User) => {
 };
 
 export const fetchRegister= async ({email,name,password,terms}:RegisterInput) => {
-  const response = await post<AuthToken>('user/register',{
+  const response = await post<AuthToken>('/user/register',{
   email,password,name,  terms
   });
 
