@@ -7,7 +7,7 @@ import TopCryptoTableRow from "./TopCryptoTableRow";
 
 export default function TopCryptoTable({ coinList }: { coinList: CoinData }) {
   const [viewMore, setViewMore] = useState(false);
-  
+
   return (
     <div className="flex w-full flex-col items-center overflow-x-hidden">
        <table className="flex min-w-full flex-col text-xs">
@@ -34,7 +34,7 @@ export default function TopCryptoTable({ coinList }: { coinList: CoinData }) {
       <Button
         dataTest="view-more-button"
         variant="ghost"
-        className="mx-auto mt-4 block text-primary"
+        className="mx-auto mt-4 block text-primary-400"
         onClick={() => setViewMore((prev) => !prev)}
       >
         {viewMore ? "View less -" : "View more +"}
