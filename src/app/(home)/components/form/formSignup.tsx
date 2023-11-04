@@ -7,6 +7,7 @@ import * as yup from 'yup'
 
 import { Input } from '@/components/ui/Input'
 import Button from '@/components/ui/button'
+import { userRegister } from '@/hooks/user'
 import { CheckboxField } from './CheckboxField'
 
 type FormValues = {
@@ -18,7 +19,7 @@ type FormValues = {
 }
 
 export function SignUpForm() {
-  const { mutate, isLoading: loading } = useRegister()
+  const { mutate, isLoading: loading } = userRegister()
   const CreateUserFormSchema = yup.object().shape({
     name: yup.string().required('Nome obrigatório'),
     email: yup.string().required('E-mail obrigatório').email('E-mail inválido'),
