@@ -1,25 +1,24 @@
-'use client'
-import { BrandName } from '@/components/brandName'
+"use client";
+import { BrandName } from "@/components/brandName";
 
-import { Icons } from '@/components/ui/icons'
-import { Dialog, Transition } from '@headlessui/react'
-import { Fragment } from 'react'
-import { FormLogin } from './form/formSignIn'
+import { Icons } from "@/components/ui/icons";
+import { Dialog, Transition } from "@headlessui/react";
+import { Fragment } from "react";
+import { FormLogin } from "./form/formSignIn";
 
-
-export function ModalSignInTo({open, closse}:{
-  open: boolean,
-  closse: React.Dispatch<React.SetStateAction<boolean>>
+export function ModalSignInTo({
+  isOpen,
+  isClose,
+  isOpenModalSignUp,
+}: {
+  isOpen: boolean;
+  isClose: React.Dispatch<React.SetStateAction<boolean>>;
+  isOpenModalSignUp: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
-
   return (
-    <Transition appear show={open} as={Fragment}>
+    <Transition appear show={isOpen} as={Fragment}>
       <div className="isolate">
-        <Dialog
-          as="div"
-          className="relative"
-          onClose={() => closse(false)}
-        >
+        <Dialog as="div" className="relative" onClose={() => isClose(false)}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -45,7 +44,7 @@ export function ModalSignInTo({open, closse}:{
               >
                 <Dialog.Panel className="relative w-full max-w-xs transform rounded-lg bg-white p-6 shadow-xl transition-all">
                   <button
-                    onClick={() => closse(false)}
+                    onClick={() => isClose(false)}
                     className="absolute right-4 top-4"
                   >
                     <Icons.XMark className="transition-colors color-secondary-400 hover:fill-secondary-300 active:fill-secondary-300" />
@@ -57,10 +56,13 @@ export function ModalSignInTo({open, closse}:{
                   <FormLogin />
                   <div className="mt-4 text-small-label">
                     <span className="hidden md:inline">
-                      Don{"'"}t have an account?{' '}
+                      Don{"'"}t have an account?{" "}
                     </span>
                     <button
-
+                      onClick={() => {
+                        isOpenModalSignUp(true);
+                        isClose(false);
+                      }}
                       className="font-bold hover:underline"
                     >
                       Sign up to <BrandName />
@@ -73,5 +75,5 @@ export function ModalSignInTo({open, closse}:{
         </Dialog>
       </div>
     </Transition>
-  )
+  );
 }
