@@ -7,8 +7,6 @@ import { Carrousel } from "@/app/(home)/components/carrousel";
 import { Sign } from "@/app/(home)/components/sign";
 import Image from "next/image";
 import Link from "next/link";
-import { Icons } from "./icons";
-import { Sheet, SheetContent, SheetTrigger } from "./sheet";
 
 export function Header() {
   const { isLoading, listCoin: data } = useCoin();
@@ -38,19 +36,7 @@ export function Header() {
       <Carrousel coinList={data} isLoading={isLoading} />
       <div className="flex w-full items-center">
         <div className="ml-auto  md:block  lg:hidden ">
-          <Sheet>
-            <SheetTrigger>
-              <button
-                className="ml-auto md:hidden "
-                aria-label="Open navigation menu"
-              >
-                <Icons.MenuHamburger />
-              </button>
-            </SheetTrigger>
-            <SheetContent className="border-none bg-white">
-              <DropdownMenu />
-            </SheetContent>
-          </Sheet>
+          <DropdownMenu />
         </div>
         <Sign />
       </div>
