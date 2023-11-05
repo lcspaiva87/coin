@@ -16,7 +16,8 @@ export function ModalSignInTo({
   return (
     <Modal isOpen={isOpen} isClose={isClose}>
       <h2 className="text-center">
-        Sign in to <BrandName />
+        Sign up to
+        <BrandName />
       </h2>
       <FormLogin />
       <div className="mt-4 text-small-label">
