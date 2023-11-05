@@ -1,19 +1,19 @@
 "use client";
 import Button from "@/components/ui/button";
 import { Icons } from "@/components/ui/icons";
-import * as SheetPrimitive from "@radix-ui/react-dialog";
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { MenuMobile } from "./SlideOver";
 import { ModalSignInTo } from "./modalSign";
+import { ModalSignUp } from "./modalSignup";
 export function DropdownMenu() {
   const headerRef = useRef<HTMLElement>(null);
-  const [isOpen, setIsOpenModal] = useState(false);
   const carrouselRef = useRef<HTMLDivElement>(null);
   const [isSlideOverOpen, setIsSlideOverOpen] = useState(false);
   const [isOpenSignInTo, setIsOpenSignInTo] = useState(false);
+  const [isOpenSignUp, setIsOpenSignUp] = useState(false);
 
-  const SheetClose = SheetPrimitive.Close;
+
 
   return (
     <div className="ml-auto  md:block  ">
@@ -56,7 +56,7 @@ export function DropdownMenu() {
             <Button
               dataTest="button-sign-up"
               className="text-label"
-
+              onClick={() => setIsOpenSignUp(true)}
             >
               Sign up
             </Button>
@@ -70,7 +70,8 @@ export function DropdownMenu() {
           </div>
         </MenuMobile>
       </button>
-      <ModalSignInTo isClose={setIsOpenSignInTo} isOpen={isOpenSignInTo} isOpenModalSignUp={setIsOpenSignInTo} />
+      <ModalSignInTo isClose={setIsOpenSignInTo} isOpen={isOpenSignInTo} isOpenModalSignUp={setIsOpenSignUp} />
+      <ModalSignUp  isClose={setIsOpenSignUp} isOpen={isOpenSignUp} isOpenModalSignIn={setIsOpenSignInTo}  />
 
     </div>
   );
