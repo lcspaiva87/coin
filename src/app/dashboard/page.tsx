@@ -33,8 +33,8 @@ export default async function Dashboard() {
 
   return (
     <>
-      <div className="flex h-full flex-col">
         <Header />
+      <div className="flex h-full flex-col">
         <main className=" relative flex-grow pb-10 pt-6 lg:bg-[#f9f9f9]">
           <div className="container flex flex-col gap-4 md:gap-6 lg:flex-row lg:gap-8">
             <CardBalance coin={coinList} />
