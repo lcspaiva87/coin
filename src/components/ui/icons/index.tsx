@@ -15,6 +15,7 @@ import { Lock } from './Lock'
 import { Logo } from './Logo'
 import { MenuHamburger } from './MenuHamburger'
 import { NoWallets } from './NoWallets'
+import { Plus } from './Plus'
 import { Trade } from './Trade'
 import { User } from './User'
 import { XMark } from './XMark'
@@ -38,5 +39,6 @@ export const Icons = {
   Trade,
   CircledArrowLeft,
   Atom,
-  Logo
+  Logo,
+  Plus
 }

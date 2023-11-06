@@ -6,7 +6,7 @@ import { Area, AreaChart, CartesianGrid, ResponsiveContainer } from 'recharts';
 export default function CryptoChart({ coin }: { coin: CoinData }) {
   const totalSupplies = coin.map((item: CoinData) => item.total_supply);
   const data: Array<{ price: number }> = []
-  console.log(data)
+
 
 
 
