@@ -1,3 +1,4 @@
+import { Footer } from "@/components/ui/footer";
 import { QueryProvider } from "@/provider/queryProvider";
 import { SnackbarProvider } from "@/provider/snackbarProvider";
 import type { Metadata } from "next";
@@ -25,6 +26,7 @@ export default function RootLayout({
         <SnackbarProvider>
           <QueryProvider>{children}</QueryProvider>
         </SnackbarProvider>
+        <Footer />
       </body>
     </html>
   );

@@ -181,7 +181,7 @@ const Row = ({ coin, index }: { coin: typeListCoin; index: number }) => {
               minimumFractionDigits: 4,
             }}
           />
-          <span className="text-small-label text-primary">
+          <span className="text-small-label text-primary-400">
             {coin.amount} {coin.acronym}
           </span>
         </div>
