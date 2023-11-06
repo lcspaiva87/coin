@@ -47,37 +47,7 @@ export function Header() {
           "--header-height": `${headerRef.current?.clientHeight ?? 0}px`,
         }}
       >
-        <nav className="flex flex-col gap-8 px-6 py-4 ">
-          <SlideOverLink
-            href="#"
-            icon={(props) => <Icons.CryptoWallet {...props} />}
-          >
-            Lorem ipsum
-          </SlideOverLink>
-          <SlideOverLink
-            href="#"
-            icon={(props) => <Icons.CryptoCurrencyCircle {...props} />}
-          >
-            Lorem ipsum
-          </SlideOverLink>
-          <SlideOverLink
-            href="#"
-            icon={(props) => <Icons.CryptoCurrency {...props} />}
-          >
-            Lorem ipsum
-          </SlideOverLink>
-          <SlideOverLink href="#" icon={(props) => <Icons.Chart {...props} />}>
-            Lorem ipsum
-          </SlideOverLink>
 
-          <button
-            aria-label="Close navigation menu"
-            className="mt-[14px] w-max"
-            onClick={() => setIsSlideOverOpen(false)}
-          >
-            <Icons.CircledArrowLeft className="h-6 w-6" />
-          </button>
-        </nav>
       </SlideOver>
     </>
   );

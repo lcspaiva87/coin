@@ -1,28 +1,29 @@
-'use client'
-import { SideBarType } from '@/@types/typeSideBar'
-import { Popover, Transition } from '@headlessui/react'
-import { useState } from 'react'
-import { SidebarItemMock } from './SidebarItem'
+"use client";
+import { SideBarType } from "@/@types/typeSideBar";
+import { Popover, Transition } from '@headlessui/react';
+import { useState } from "react";
+import { SidebarItemMock } from "./SidebarItem";
 
-export function Sidebar() {
+export function AsideMenu() {
   const [isShowing, setIsShowing] = useState(
     Array(SidebarItemMock.length).fill(false),
-  )
+  );
 
   const handleMouseEnter = (index: number) => {
-    const newIsShowing = [...isShowing]
-    newIsShowing[index] = true
-    setIsShowing(newIsShowing)
-  }
+    const newIsShowing = [...isShowing];
+    newIsShowing[index] = true;
+    setIsShowing(newIsShowing);
+  };
 
   const handleMouseLeave = (index: number) => {
-    const newIsShowing = [...isShowing]
-    newIsShowing[index] = false
-    setIsShowing(newIsShowing)
-  }
-
+    const newIsShowing = [...isShowing];
+    newIsShowing[index] = false;
+    setIsShowing(newIsShowing);
+  };
+  // /absolute inset-y-0 left-0 z-20 hidden flex-col items-center gap-8 border-y border-secondary-300 bg-quaternary px-6 py-12 lg:flex
   return (
-    <nav className="absolute inset-y-0 left-0 z-20 hidden flex-col items-center gap-8 border-y border-secondary-300 bg-white px-6 py-12 lg:flex">
+    <div className=" fixed top-14  flex h-full md:top-[60px] lg:bottom-16 lg:top-16">
+      <nav className=" absolute inset-y-0 left-0 z-20 hidden flex-col items-center gap-8 border-y border-secondary-300 bg-quaternary px-6 py-12 lg:flex">
       {SidebarItemMock.map((item: SideBarType, index) => (
         <Popover
           key={item.id}
@@ -55,7 +56,7 @@ export function Sidebar() {
           </Transition>
         </Popover>
       ))}
-    </nav>
-  )
+      </nav>
+    </div>
+  );
 }
-
