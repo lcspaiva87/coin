@@ -55,6 +55,39 @@ export function CardMyWallet({ data }: { data: typeListCoin }) {
             )}
           </div>
         </div>
+        <div className="flex flex-col items-center justify-center px-14 py-10 text-center ">
+          {!data.length && (
+            <>
+              <Icons.NoWallets className="h-12 md:h-[68px]" />
+              <p className="mt-4 font-bold md:mt-6 md:text-h5">
+                Nothing here yet...
+              </p>
+              <p className="mt-2 text-small-label md:text-label">
+                Add a crypto and start earning
+              </p>
+            </>
+          )}
+          {data.length > 0 && (
+            <div className=" max-h-[400px] w-full overflow-auto  scrollbar-hide">
+              <table className=" hidden w-full table-auto text-left md:table">
+                <thead>
+                  <tr className="text-left">
+                    <Th className="w-1/12">#</Th>
+                    <Th className="w-1/3">Crypto</Th>
+                    <Th className="w-1/3">Holdings</Th>
+                    <Th className="w-1/3">Change</Th>
+                    <Th className="w-1/12">Trade</Th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data.map((coin:typeListCoin, index: number) => (
+                    <Row coin={coin} index={index} key={coin.id} />
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </div>
       </div>
     </>
   );
@@ -119,6 +152,7 @@ const SingleEntryCard = (coin: typeListCoin) => {
           Trade
         </Button>
       </div>
+
     </div>
   );
 };
