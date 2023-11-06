@@ -45,16 +45,3 @@ export default async function Dashboard() {
     </main>
   );
 }
-/*<div className="flex h-full flex-col">
-<main className="relative flex-grow pb-10 pt-6 lg:bg-[#f9f9f9]">
-  <div className="container flex flex-col gap-4 md:gap-6 lg:flex-row lg:gap-8">
-    <CardBalance coin={coinList} />
-    <div className="flex w-full gap-4 md:gap-8">
-      <DailyVariationCard coin={coinList} />
-      <CardNFTNews />
-    </div>
-  </div>
-  <hr className="container mt-6 text-secondary-300 md:hidden" />
-  <CardMyWallet />
-</main>
-</div> */
