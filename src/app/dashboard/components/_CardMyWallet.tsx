@@ -13,7 +13,7 @@ import Image from "next/image";
 export function CardMyWallet({ data }: { data: typeListCoin }) {
   return (
     <>
-      <div className="shadow-lg max-sm:shadow-none max-sm:bg-transparent rounded-lg">
+      <div className="shadow-lg max-sm:shadow-none max-sm:bg-transparent rounded-lg bg-white ">
         <hr className=" mt-6 text-secondary-300 md:hidden" />
         <div className="flex mt-3 items-center gap-4 rounded-t-lg px-2  md:flex md:p-6">
           <Icons.CryptoWallet className="h-6 w-6 md:h-8 md:w-8 " />
@@ -159,7 +159,7 @@ const SingleEntryCard = (coin: typeListCoin) => {
 
 const Row = ({ coin, index }: { coin: typeListCoin; index: number }) => {
   return (
-    <tr className="max-h-16 transition-colors last:rounded-b-lg even:bg-secondary-100 hover:bg-secondary-100 even:hover:bg-secondary-200">
+    <tr className="max-h-16 transition-colors  last:rounded-b-lg even:bg-secondary-100 hover:bg-secondary-100 even:hover:bg-secondary-200">
       <Cell className="rounded-bl-lg text-label">{index}</Cell>
       <Cell className="flex items-center gap-2">
         <Image src={coin.icon} alt="" width={32} height={32} />
@@ -266,81 +266,3 @@ const TradePopover = ({ coin }: { coin: typeListCoin }) => {
     </Popover>
   );
 };
-{
-  /* <div className="mt-4 overflow-hidden rounded-lg py-10 shadow-[0px_8px_16px_rgba(0,0,0,0.1)]  md:mt-8">
-        <div className="flex items-center gap-4 rounded-t-lg px-2  md:flex md:p-6">
-          <Icons.CryptoWallet className="h-6 w-6 md:h-8 md:w-8 " />
-          <span className="text-h5 font-bold md:text-h4">My Wallet</span>
-          <Button
-            dataTest="add-crypto"
-            className="ml-auto h-6 w-6 rounded-full !p-0 md:h-auto md:w-auto md:!px-4 md:!py-2"
-          >
-            <span>+</span>
-            <span className="ml-2 hidden md:inline">Add crypto</span>
-          </Button>
-        </div>
-        <div className=" max-h-[400px] w-full overflow-auto  scrollbar-hide">
-          <div className="mt-4 grid grid-cols-2 gap-4 p-[1rem] md:hidden">
-            {data.map(
-              ({
-                acronym,
-                amount,
-                icon,
-                id,
-                name,
-                percentage,
-                priceUsd,
-                userId,
-              }: typeListCoin) => (
-                <SingleEntryCard
-                  coin={data}
-                  id={id}
-                  name={name}
-                  icon={icon}
-                  priceUsd={priceUsd}
-                  percentage={percentage}
-                  amount={amount}
-                  userId={userId}
-                  acronym={acronym}
-                  key={id}
-                />
-              ),
-            )}
-          </div>
-        </div>
-        <hr className="hidden  text-secondary-300 md:flex" />
-        <div className="flex flex-col items-center justify-center px-14 py-10 text-center ">
-          {!data.length && (
-            <>
-              <Icons.NoWallets className="h-12 md:h-[68px]" />
-              <p className="mt-4 font-bold md:mt-6 md:text-h5">
-                Nothing here yet...
-              </p>
-              <p className="mt-2 text-small-label md:text-label">
-                Add a crypto and start earning
-              </p>
-            </>
-          )}
-          {data.length > 0 && (
-            <div className=" max-h-[400px] w-full overflow-auto  scrollbar-hide">
-              <table className=" hidden w-full table-auto text-left md:table">
-                <thead>
-                  <tr className="text-left">
-                    <Th className="w-1/12">#</Th>
-                    <Th className="w-1/3">Crypto</Th>
-                    <Th className="w-1/3">Holdings</Th>
-                    <Th className="w-1/3">Change</Th>
-                    <Th className="w-1/12">Trade</Th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {data.map((item: any, index: number) => (
-                    <Row coin={item} index={index} key={data.id} />
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          )}
-        </div>
-      </div> */
-}
