@@ -1,0 +1,98 @@
+'use client'
+import { CoinData } from '@/@types/typeCoins'
+import { Input } from '@/components/ui/Input'
+
+
+import { Select } from '@/components/ui/Select'
+import Button from '@/components/ui/button'
+import { LoadingSpinner } from '@/components/ui/loadingSpinner'
+import { useCoin, useCoinUpdate } from '@/data/coin'
+import { getUser } from '@/lib/auth'
+import { useCoinStore } from '@/store/coin'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { useEffect } from 'react'
+import { useForm } from 'react-hook-form'
+import * as yup from 'yup'
+
+
+export function AddCryptonForm({ coin }: { coin: CoinData }) {
+  const { mutate: registerCoin, isLoading: loading } = useCoin()
+  const {
+    mutate: coinUpdateMutation,
+    data,
+    isLoading,
+    isError,
+  } = useCoinUpdate()
+
+  const { userId } = getUser()
+
+  useEffect(() => {
+    if (!isLoading && !isError && data) {
+      useCoinStore.setState({ state: { coin: data ?? [] } })
+    }
+  }, [isLoading, isError, data])
+  const signInFormSchema = yup.object().shape({
+    amount: yup.number().required('amount obrigatório').min(0.00001),
+  })
+  const {
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(signInFormSchema),
+  })
+
+  async function onSubmit(data: any) {
+    registerCoin(
+      {
+        amount: Number(data.amount),
+        icon: data?.coin?.image,
+        name: data?.coin?.name,
+        percentage: Number(data?.coin.price_change_percentage_24h),
+        priceUsd: Number(data?.coin.current_price),
+        userId: String(userId),
+        acronym: String(data?.coin?.symbol),
+      },
+      {
+        onError: (error: any) => {
+          Object.keys(error?.response?.data).forEach((field: any) => {
+            toast.error(error.response.data.message)
+          })
+        },
+        onSuccess() {
+          coinUpdateMutation()
+        },
+      },
+    )
+  }
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)} className="mt-10 md:w-full">
+      <Select
+        name="coin"
+        control={control}
+        coinList={coin}
+        disabled={loading}
+      />
+      <Input
+        type="number"
+        name="amount"
+        placeholder="0,00"
+        required
+        className="mt-4 w-full"
+        control={control}
+        disabled={loading}
+        dataTest="input-amount-crypton"
+      />
+      <h1>{errors.amount?.message}</h1>
+      <Button
+        dataTest="button-add-crypton"
+        disabled={!errors}
+        className="mt-4 w-full py-3 shadow-xl md:mt-[21px]"
+        type="submit"
+      >
+        {loading ? <LoadingSpinner className="mx-auto" /> : 'Subscribe'}
+      </Button>
+    </form>
+  )
+}
