@@ -19,12 +19,11 @@ export function CardBalance({ coin }: { coin: CoinData }) {
     }, 4000);
   }, []);
   return (
-    <section className="flex w-full justify-between overflow-hidden rounded-lg bg-white shadow-lg">
+    <section className="flex w-full justify-between overflow-hidden rounded-lg bg-white shadow-lg h-[7rem]">
       <div className="flex items-center gap-2 px-4 py-2 2xl:gap-4 2xl:p-6">
         <div className="rounded-full bg-primary-100 p-2">
           <Icons.Balance className="w-5 md:w-8 2xl:w-10" />
         </div>
-
         <div
           className="flex flex-col leading-tight md:w-[10rem] md:flex-row md:flex-wrap md:items-center md:text-xl
         lg:text-lg xl:text-xl"

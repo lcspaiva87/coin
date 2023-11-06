@@ -4,8 +4,12 @@ import axios from "axios";
 import { Metadata } from "next";
 import { cookies } from "next/headers";
 
+import { Footer } from "@/components/ui/footer";
 import { AsideMenu } from "./components/AsideMenu";
-import { Header } from "./components/header";
+import { CardBalance } from "./components/_CardBalance";
+import { CardMyWallet } from "./components/_CardMyWallet";
+import { DailyVariationCard } from "./components/_DailyVariationCard";
+import { CardNFTNews } from "./components/cardNFTNews";
 
 export const metadata: Metadata = {
   title: "Dashboard",
@@ -29,11 +33,11 @@ export default async function Dashboard() {
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <AsideMenu />
-      {/* <div className="flex h-screen flex-col">
-        <main className=" relative flex-grow  pt-6 lg:bg-[#f9f9f9]">
-          <div className="container flex flex-col gap-4 md:gap-6 lg:flex-row lg:gap-8">
+      <div className="flex h-screen flex-col">
+        <main className="  flex-grow  pt-6 lg:bg-[#f9f9f9] px-[2rem] lg:px-[9.938rem]">
+          <div className=" flex flex-col gap-4 md:gap-6 lg:flex-row lg:gap-8">
             <CardBalance coin={coinList} />
             <div className="flex w-full gap-4 md:gap-8">
               <DailyVariationCard coin={coinList} />
@@ -47,7 +51,7 @@ export default async function Dashboard() {
         </main>
 
         <Footer />
-      </div> */}
+      </div>
     </>
   );
 }
