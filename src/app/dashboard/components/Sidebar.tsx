@@ -41,7 +41,7 @@ export function Sidebar() {
             leave="transition duration-75 ease-out"
             leaveFrom="transform scale-100 opacity-100"
             leaveTo="transform scale-95 opacity-0"
-            className="absolute inset-y-0 left-full ml-4 flex origin-left items-center justify-center rounded bg-primary px-6 py-2 shadow-[0px_4px_8px_rgba(0,0,0,0.1)]"
+            className="absolute inset-y-0 left-full ml-4 flex origin-left items-center justify-center rounded bg-primary-400 px-6 py-2 shadow-[0px_4px_8px_rgba(0,0,0,0.1)]"
           >
             <Popover.Panel static>
               <div
