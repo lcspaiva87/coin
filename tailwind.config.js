@@ -67,19 +67,7 @@ module.exports = {
       body: '#5D6670',
       transparent: 'transparent',
     },
-    fontSize: {
-      h1: ['3rem', { lineHeight: '3.5rem', letterSpacing: '-1' }],
-      h2: ['2.5rem', { lineHeight: '3rem', letterSpacing: '-1' }],
-      h3: ['2rem', { lineHeight: '2.5rem', letterSpacing: '0' }],
-      h4: ['1.5rem', { lineHeight: '2rem', letterSpacing: '0' }],
-      h5: ['1.25rem', { lineHeight: '1.5rem', letterSpacing: '0' }],
-      base: ['1rem', { lineHeight: '1.5rem', letterSpacing: '0' }],
-      label: ['0.875rem', { lineHeight: '1rem', letterSpacing: '0' }],
-      'small-label': [
-        '0.75rem',
-        { lineHeight: '0.875rem', letterSpacing: '0' },
-      ],
-    },
+
     fontWeight: {
       normal: '400',
       norma: '500',
@@ -87,7 +75,7 @@ module.exports = {
       bold: '700',
     },
     fontFamily: {},
-    screens,
+
     container: {
       screens,
       center: true,

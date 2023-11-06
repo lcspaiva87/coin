@@ -12,8 +12,10 @@ import { DoorOut } from './DoorOut'
 import { Envelope } from './Envelope'
 import { Eye } from './Eye'
 import { Lock } from './Lock'
+import { Logo } from './Logo'
 import { MenuHamburger } from './MenuHamburger'
 import { NoWallets } from './NoWallets'
+import { Plus } from './Plus'
 import { Trade } from './Trade'
 import { User } from './User'
 import { XMark } from './XMark'
@@ -36,5 +38,7 @@ export const Icons = {
   NoWallets,
   Trade,
   CircledArrowLeft,
-  Atom
+  Atom,
+  Logo,
+  Plus
 }

@@ -16,7 +16,7 @@ export interface CoinData {
   market_cap_change_24h: number
   market_cap_change_percentage_24h: number
   circulating_supply: number
-  total_supply: number
+  total_supply: Array<Array<number>>
   ath: number
   ath_change_percentage: number
   ath_date: string

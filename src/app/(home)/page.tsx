@@ -1,4 +1,3 @@
-import { Footer } from "@/components/ui/footer";
 import { Header } from "@/components/ui/header";
 import Image from "next/image";
 import Hero from "./components/hero";
@@ -23,7 +22,7 @@ export default async function Home() {
       <Solutions />
       <TopCryptos />
       <NewsLetter />
-      <Footer />
+
     </>
   );
 }
