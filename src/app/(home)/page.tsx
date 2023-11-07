@@ -5,7 +5,7 @@ import { NewsLetter } from "./components/newsLetter";
 import Solutions from "./components/solutions";
 import { TopCryptos } from "./components/topCryptos";
 
-export default async function Home() {
+export default  function Home() {
 
   return (
     <>

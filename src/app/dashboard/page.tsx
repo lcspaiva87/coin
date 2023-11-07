@@ -6,7 +6,6 @@ import { Metadata } from "next";
 import { cookies } from "next/headers";
 import { AsideMenu } from "./components/AsideMenu";
 import { CardBalance } from "./components/_CardBalance";
-import { CardMyWallet } from "./components/_CardMyWallet";
 import { DailyVariationCard } from "./components/_DailyVariationCard";
 import { CardNFTNews } from "./components/cardNFTNews";
 
@@ -43,7 +42,7 @@ export default async function Dashboard() {
           </div>
         </div>
 
-        <CardMyWallet data={dateUser.data} />
+        {/* <CardMyWallet data={dateUser.data} /> */}
       </div>
     </main>
   );

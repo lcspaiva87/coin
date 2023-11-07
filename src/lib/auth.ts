@@ -4,6 +4,7 @@ import decode from 'jwt-decode'
 
 export function getUser(): User {
   const token = Cookie.get('auth_token')
+  console.log(token)
   if (!token) {
     throw new Error('Unauthenticated')
   }

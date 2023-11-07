@@ -1,5 +1,7 @@
+
 import Cookie from 'js-cookie';
-import { post } from "./client/http-client";
+
+import { get, post } from "./client/http-client";
 
 interface User {
   email:string,
@@ -41,8 +43,20 @@ export const fetchRegister= async ({email,name,password,terms}:RegisterInput) =>
 
 export const fetchCreateOrder= async ({acronym,amount,icon,name,percentage,priceUsd,userId}:typeAddCrypton) => {
   const token = Cookie.get('auth_token')
+
   const response = await post('/coin/register',{
     acronym,amount,icon,name,percentage,priceUsd,userId
   },token);
     return  response;
 }
+
+export const fetListOrder= async (token:any) => {
+  const response = await get('/coin',token);
+    return  response;
+}
+
+
+
+
+
+

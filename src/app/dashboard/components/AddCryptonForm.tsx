@@ -1,5 +1,4 @@
 "use client";
-import { CoinData } from "@/@types/typeCoins";
 import { Input } from "@/components/ui/Input";
 import { Select } from "@/components/ui/Select";
 
@@ -13,7 +12,7 @@ import { enqueueSnackbar } from "notistack";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 
-export function AddCryptonForm({ data }: { data: CoinData }) {
+export function AddCryptonForm(data:any) {
   const { mutate: CreateOrde, isLoading: loading } = userCreateOrder();
 
   const { userId } = getUser();
@@ -46,6 +45,7 @@ export function AddCryptonForm({ data }: { data: CoinData }) {
             enqueueSnackbar(error.response.data.message, {
               variant: "error",
             });
+            console.log(error.response.data.message)
           });
         },
       },
@@ -57,7 +57,7 @@ export function AddCryptonForm({ data }: { data: CoinData }) {
       <Select
         name="coin"
         control={control}
-        coinList={data}
+        coinList={data.data}
         disabled={loading}
       />
       <Input
