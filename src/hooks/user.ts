@@ -1,9 +1,10 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 'use client'
-import { fetchLogin, fetchRegister } from '@/data/user';
+import { fetchCreateOrder, fetchListOrder, fetchLogin, fetchRegister } from '@/data/user';
 import Cookie from 'js-cookie';
 import { useRouter } from 'next/navigation';
 import { enqueueSnackbar } from "notistack";
-import { useMutation } from 'react-query';
+import { useMutation, useQueryClient } from 'react-query';
 
 export const userFetch = () => {
 
@@ -44,4 +45,44 @@ export const userRegister = () => {
     },
   })
 
+}
+
+export const userCreateOrder = () =>{
+  const queryClient = useQueryClient();
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  return useMutation(fetchCreateOrder,{
+    onError: (erro:any) => {
+      enqueueSnackbar(erro, {
+        variant: "error",
+      });
+      console.log(erro)
+    },
+    onSuccess: (_,data) => {
+      queryClient.setQueryData(["Order", undefined], (oldData: any) => {
+        if (Array.isArray(oldData)) {
+          return [
+            ...oldData,
+            data,
+          ];
+        } else {
+          // Handle the case where oldData is not an array
+          // For example, you could return a new array containing only the new data
+          return [data];
+        }
+       });
+      enqueueSnackbar("Task criada com sucesso!", { variant: "success" });
+    },
+  })
+}
+export const userListOrder = () =>{
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  return useMutation(fetchListOrder,{
+    onError: (erro:any) => {
+      enqueueSnackbar(erro, {
+        variant: "error",
+      });
+      console.log(erro)
+    },
+
+  })
 }

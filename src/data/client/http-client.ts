@@ -10,7 +10,7 @@ invariant(
 async function request<T>(method: 'get' | 'post' | 'put', path: string, data?: unknown, token?: string) {
   const config = token ? {
     headers: {
-      Authorization: `Bearer ${token}`,
+      Authorization:`Bearer ${token}`,
     },
   } : {};
 

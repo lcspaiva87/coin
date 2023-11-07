@@ -2,15 +2,20 @@
 import { typeListCoin } from "@/@types/typeListCoin";
 import FormattedNumber from "@/app/(home)/components/formattedNumber";
 
+import { CoinData } from "@/@types/typeCoins";
 import Button from "@/components/ui/button";
-
 import { Icons } from "@/components/ui/icons";
-
+import { useCoinStore } from "@/store/coin";
 import { Popover, Transition } from "@headlessui/react";
 import clsx from "clsx";
 import Image from "next/image";
+import { useState } from "react";
+import { ModalAddCrypto } from "./ModalAddCrypto";
 
-export function CardMyWallet({ data }: { data: typeListCoin }) {
+export function CardMyWallet({ data }: { data: CoinData }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const { coin } = useCoinStore.getState().state
+
   return (
     <>
       <div className="shadow-lg max-sm:shadow-none max-sm:bg-transparent rounded-lg bg-white ">
@@ -21,6 +26,7 @@ export function CardMyWallet({ data }: { data: typeListCoin }) {
           <Button
             dataTest="add-crypto"
             className="ml-auto h-8 w-8 rounded-full !p-0 md:h-auto md:w-auto md:!px-4 md:!py-2 flex justify-center items-center"
+            onClick={() => setIsOpen(true)}
           >
             <Icons.Plus />
             <span className="ml-2 hidden md:inline">Add crypto</span>
@@ -28,7 +34,7 @@ export function CardMyWallet({ data }: { data: typeListCoin }) {
         </div>
         <div className=" max-h-[400px] w-full overflow-auto  scrollbar-hide">
           <div className="mt-4 grid grid-cols-2 gap-4  md:hidden">
-            {data.map(
+            {coin.map(
               ({
                 acronym,
                 amount,
@@ -40,7 +46,7 @@ export function CardMyWallet({ data }: { data: typeListCoin }) {
                 userId,
               }: typeListCoin) => (
                 <SingleEntryCard
-                  coin={data}
+                  coin={coin}
                   id={id}
                   name={name}
                   icon={icon}
@@ -56,7 +62,7 @@ export function CardMyWallet({ data }: { data: typeListCoin }) {
           </div>
         </div>
         <div className="flex flex-col items-center justify-center px-14 py-10 text-center ">
-          {!data.length && (
+          {!coin.length && (
             <>
               <Icons.NoWallets className="h-12 md:h-[68px]" />
               <p className="mt-4 font-bold md:mt-6 md:text-h5">
@@ -67,7 +73,7 @@ export function CardMyWallet({ data }: { data: typeListCoin }) {
               </p>
             </>
           )}
-          {data.length > 0 && (
+          {coin.length > 0 && (
             <div className=" max-h-[400px] w-full overflow-auto  scrollbar-hide">
               <table className=" hidden w-full table-auto text-left md:table">
                 <thead>
@@ -80,7 +86,7 @@ export function CardMyWallet({ data }: { data: typeListCoin }) {
                   </tr>
                 </thead>
                 <tbody>
-                  {data.map((coin:typeListCoin, index: number) => (
+                  {coin.map((coin: typeListCoin, index: number) => (
                     <Row coin={coin} index={index} key={coin.id} />
                   ))}
                 </tbody>
@@ -89,6 +95,8 @@ export function CardMyWallet({ data }: { data: typeListCoin }) {
           )}
         </div>
       </div>
+
+      <ModalAddCrypto isClose={setIsOpen} isOpen={isOpen} data={data} />
     </>
   );
 }
@@ -152,7 +160,6 @@ const SingleEntryCard = (coin: typeListCoin) => {
           Trade
         </Button>
       </div>
-
     </div>
   );
 };
@@ -242,7 +249,11 @@ const TradePopover = ({ coin }: { coin: typeListCoin }) => {
     <Popover className="relative">
       <Popover.Button
         className="flex w-full items-center justify-center"
-        onClick={() => {}}
+        // onClick={() => {
+        //   setModalTransferringCrypto(true)
+
+        //   setvalueTrade([coin])
+        // }}
       >
         <Icons.Trade className="h-4 w-4" />
       </Popover.Button>

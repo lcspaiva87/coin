@@ -1,4 +1,4 @@
-import { Footer } from "@/components/ui/footer";
+import { ModalProvider } from "@/context/ModalContext";
 import { QueryProvider } from "@/provider/queryProvider";
 import { SnackbarProvider } from "@/provider/snackbarProvider";
 import type { Metadata } from "next";
@@ -24,9 +24,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={roboto.className}>
         <SnackbarProvider>
-          <QueryProvider>{children}</QueryProvider>
+          <QueryProvider>
+            <ModalProvider>{children}</ModalProvider>
+          </QueryProvider>
         </SnackbarProvider>
-        <Footer />
+
       </body>
     </html>
   );

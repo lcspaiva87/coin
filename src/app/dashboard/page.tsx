@@ -1,11 +1,11 @@
 import { CoinData } from "@/@types/typeCoins";
 import { typeListCoin } from "@/@types/typeListCoin";
+
 import axios from "axios";
 import { Metadata } from "next";
 import { cookies } from "next/headers";
 import { AsideMenu } from "./components/AsideMenu";
 import { CardBalance } from "./components/_CardBalance";
-import { CardMyWallet } from "./components/_CardMyWallet";
 import { DailyVariationCard } from "./components/_DailyVariationCard";
 import { CardNFTNews } from "./components/cardNFTNews";
 
@@ -18,6 +18,7 @@ export default async function Dashboard() {
   const response = await axios.get<CoinData>(
     `${process.env.NEXT_PUBLIC_REST_API_COINS}`,
   );
+
   const dateUser = await axios.get<typeListCoin>(
     `${process.env.NEXT_PUBLIC_REST_API_ENDPOINT}/coin`,
     {
@@ -30,6 +31,7 @@ export default async function Dashboard() {
 
   return (
     <main className="bg-secondary-100 flex flex-1">
+
       <AsideMenu />
       <div className="m-[1rem] lg:m-16 max-sm:m-6 w-full flex flex-col gap-8">
         <div className="flex gap-8 max-sm:gap-4 flex-wrap h-fit">
@@ -40,7 +42,7 @@ export default async function Dashboard() {
           </div>
         </div>
 
-        <CardMyWallet data={dateUser.data} />
+        {/* <CardMyWallet data={dateUser.data} /> */}
       </div>
     </main>
   );
