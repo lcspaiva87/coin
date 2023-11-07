@@ -1,9 +1,10 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 'use client'
-import { fetchLogin, fetchRegister } from '@/data/user';
+import { fetchCreateOrder, fetchLogin, fetchRegister } from '@/data/user';
 import Cookie from 'js-cookie';
 import { useRouter } from 'next/navigation';
 import { enqueueSnackbar } from "notistack";
-import { useMutation } from 'react-query';
+import { useMutation, useQueryClient } from 'react-query';
 
 export const userFetch = () => {
 
@@ -44,4 +45,34 @@ export const userRegister = () => {
     },
   })
 
+}
+
+export const userTete = () => {
+ return  useMutation(fetchLogin,{
+    onError: () => {
+      enqueueSnackbar("error try again", {
+        variant: "error",
+      });
+
+    },
+    onSuccess: (data) => {
+      console.log(data)
+    },
+  })
+
+}
+export const userCreateOrder = () =>{
+  const queryClient = useQueryClient();
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  return useMutation(fetchCreateOrder,{
+    onError: () => {
+      enqueueSnackbar("error creating order", {
+        variant: "error",
+      });
+    },
+    onSuccess: (_,data) => {
+
+      enqueueSnackbar("Task criada com sucesso!", { variant: "success" });
+    },
+  })
 }

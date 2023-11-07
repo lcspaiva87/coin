@@ -12,9 +12,6 @@ export function DropdownMenu() {
   const [isSlideOverOpen, setIsSlideOverOpen] = useState(false);
   const [isOpenSignInTo, setIsOpenSignInTo] = useState(false);
   const [isOpenSignUp, setIsOpenSignUp] = useState(false);
-
-
-
   return (
     <div className="ml-auto  md:block  ">
       <button

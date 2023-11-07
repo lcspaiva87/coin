@@ -1,49 +1,34 @@
-'use client'
-import { CoinData } from '@/@types/typeCoins'
-import { Input } from '@/components/ui/Input'
+"use client";
+import { Input } from "@/components/ui/Input";
 
+import Button from "@/components/ui/button";
+import { LoadingSpinner } from "@/components/ui/loadingSpinner";
+import { userCreateOrder } from "@/hooks/user";
 
-import { Select } from '@/components/ui/Select'
-import Button from '@/components/ui/button'
-import { LoadingSpinner } from '@/components/ui/loadingSpinner'
-import { useCoin, useCoinUpdate } from '@/data/coin'
-import { getUser } from '@/lib/auth'
-import { useCoinStore } from '@/store/coin'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { useEffect } from 'react'
-import { useForm } from 'react-hook-form'
-import * as yup from 'yup'
+import { getUser } from "@/lib/auth";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { enqueueSnackbar } from "notistack";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
 
+export function AddCryptonForm() {
+  const { mutate: CreateOrde, isLoading: loading } = userCreateOrder();
 
-export function AddCryptonForm({ coin }: { coin: CoinData }) {
-  const { mutate: registerCoin, isLoading: loading } = useCoin()
-  const {
-    mutate: coinUpdateMutation,
-    data,
-    isLoading,
-    isError,
-  } = useCoinUpdate()
+  const { userId } = getUser();
 
-  const { userId } = getUser()
-
-  useEffect(() => {
-    if (!isLoading && !isError && data) {
-      useCoinStore.setState({ state: { coin: data ?? [] } })
-    }
-  }, [isLoading, isError, data])
   const signInFormSchema = yup.object().shape({
-    amount: yup.number().required('amount obrigatório').min(0.00001),
-  })
+    amount: yup.number().required("amount obrigatório").min(0.00001),
+  });
   const {
     handleSubmit,
     control,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(signInFormSchema),
-  })
+  });
 
   async function onSubmit(data: any) {
-    registerCoin(
+    CreateOrde(
       {
         amount: Number(data.amount),
         icon: data?.coin?.image,
@@ -56,24 +41,23 @@ export function AddCryptonForm({ coin }: { coin: CoinData }) {
       {
         onError: (error: any) => {
           Object.keys(error?.response?.data).forEach((field: any) => {
-            toast.error(error.response.data.message)
-          })
-        },
-        onSuccess() {
-          coinUpdateMutation()
+            enqueueSnackbar(error.response.data.message, {
+              variant: "error",
+            });
+          });
         },
       },
-    )
+    );
   }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="mt-10 md:w-full">
-      <Select
+      {/* <Select
         name="coin"
         control={control}
-        coinList={coin}
+        coinList={coinList}
         disabled={loading}
-      />
+      /> */}
       <Input
         type="number"
         name="amount"
@@ -91,8 +75,8 @@ export function AddCryptonForm({ coin }: { coin: CoinData }) {
         className="mt-4 w-full py-3 shadow-xl md:mt-[21px]"
         type="submit"
       >
-        {loading ? <LoadingSpinner className="mx-auto" /> : 'Subscribe'}
+        {loading ? <LoadingSpinner className="mx-auto" /> : "Subscribe"}
       </Button>
     </form>
-  )
+  );
 }

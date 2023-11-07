@@ -9,8 +9,12 @@ import { Icons } from "@/components/ui/icons";
 import { Popover, Transition } from "@headlessui/react";
 import clsx from "clsx";
 import Image from "next/image";
+import { useState } from "react";
+import { ModalAddCrypto } from "./ModalAddCrypto";
 
 export function CardMyWallet({ data }: { data: typeListCoin }) {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
       <div className="shadow-lg max-sm:shadow-none max-sm:bg-transparent rounded-lg bg-white ">
@@ -21,6 +25,7 @@ export function CardMyWallet({ data }: { data: typeListCoin }) {
           <Button
             dataTest="add-crypto"
             className="ml-auto h-8 w-8 rounded-full !p-0 md:h-auto md:w-auto md:!px-4 md:!py-2 flex justify-center items-center"
+            onClick={() => setIsOpen(true)}
           >
             <Icons.Plus />
             <span className="ml-2 hidden md:inline">Add crypto</span>
@@ -80,7 +85,7 @@ export function CardMyWallet({ data }: { data: typeListCoin }) {
                   </tr>
                 </thead>
                 <tbody>
-                  {data.map((coin:typeListCoin, index: number) => (
+                  {data.map((coin: typeListCoin, index: number) => (
                     <Row coin={coin} index={index} key={coin.id} />
                   ))}
                 </tbody>
@@ -88,6 +93,9 @@ export function CardMyWallet({ data }: { data: typeListCoin }) {
             </div>
           )}
         </div>
+      </div>
+      <div>
+        <ModalAddCrypto isClose={setIsOpen} isOpen={isOpen} />
       </div>
     </>
   );
@@ -152,7 +160,6 @@ const SingleEntryCard = (coin: typeListCoin) => {
           Trade
         </Button>
       </div>
-
     </div>
   );
 };

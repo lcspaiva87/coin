@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { QueryProvider } from "@/provider/queryProvider";
 import { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "../globals.css";
@@ -21,7 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={(cn(roboto.className), "h-screen flex flex-col")}>
         <Header />
-        {children}
+        <QueryProvider>{children}</QueryProvider>
       </body>
     </html>
   );
