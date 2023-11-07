@@ -1,9 +1,9 @@
 import { getUser } from "@/lib/auth";
 import { Menus } from "./menu";
 
-export default function DropdownMenu({ className }: { className: string }) {
+export default function DropdownMenu() {
   const { name, avatarUrl } = getUser();
   return (
-    <Menus name={name} className={className} avatarUrl={avatarUrl} />
+    <Menus name={name}  avatarUrl={avatarUrl} />
   );
 }

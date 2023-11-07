@@ -1,20 +1,19 @@
 'use client';
 import { Icons } from "@/components/ui/icons";
 import { Menu, Transition } from "@headlessui/react";
-import clsx from "clsx";
+
 import Image from "next/image";
 import { Fragment } from "react";
 export function Menus({
-  className,
   avatarUrl,
   name,
 }: {
-  className: string;
+
   avatarUrl: string;
   name: string;
 }) {
   return (
-    <Menu as="div" className={clsx("relative", className)}>
+    <Menu as="div" className="relative">
       <Menu.Button className="flex items-center">
         <Image
           width={24}
