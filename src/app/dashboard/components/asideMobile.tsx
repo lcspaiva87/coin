@@ -3,8 +3,10 @@ import { Dialog, Transition } from "@headlessui/react";
 import clsx from "clsx";
 import Link from "next/link";
 import { Fragment, useRef, useState } from "react";
-const SlideOvers = () => {
+const AsideMobile= () => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [isSlideOverOpen, setIsSlideOverOpen] = useState(false);
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const headerRef = useRef<HTMLElement>(null)
   return (
     <div>
@@ -180,4 +182,4 @@ const SlideOver = ({
   );
 };
 
-export default SlideOvers;
+export default AsideMobile;
