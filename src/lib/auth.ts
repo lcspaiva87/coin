@@ -1,9 +1,13 @@
-import { User } from '@/@types/typeDecodeToken'
 import decode from 'jwt-decode'
-import { parseCookies } from 'nookies'
+import { cookies } from 'next/headers'
+interface User {
+  userId: string
+  name: string
+  avatarUrl: string
+}
 
 export function getUser(): User {
-  const{'auth_token':token} = parseCookies()
+  const token = cookies().get('auth_token')?.value
   if (!token) {
     throw new Error('Unauthenticated')
   }

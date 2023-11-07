@@ -1,3 +1,4 @@
+'use client';
 import { Icons } from "@/components/ui/icons";
 import { Dialog, Transition } from "@headlessui/react";
 import clsx from "clsx";

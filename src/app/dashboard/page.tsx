@@ -38,7 +38,6 @@ export default async function Dashboard() {
   useCoinStore.setState({ state: { coin: resCoin.data ?? [] } })
   return (
     <main className="bg-secondary-100 flex flex-1">
-
       <AsideMenu />
       <InitialSore coin={resCoin.data} />
       <div className="m-[1rem] lg:m-16 max-sm:m-6 w-full flex flex-col gap-8">

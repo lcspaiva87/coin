@@ -10,7 +10,6 @@ import { Popover, Transition } from "@headlessui/react";
 import clsx from "clsx";
 import Image from "next/image";
 import { useState } from "react";
-import ModalAddCrypto from "./ModalAddCrypto";
 
 export default function CardMyWallet({ data }: { data: CoinData}) {
   const [isOpen, setIsOpen] = useState(false);
@@ -96,7 +95,7 @@ export default function CardMyWallet({ data }: { data: CoinData}) {
         </div>
       </div>
 
-      <ModalAddCrypto isClose={setIsOpen} isOpen={isOpen} data={data} />
+      {/* <ModalAddCrypto isClose={setIsOpen} isOpen={isOpen} data={data} /> */}
     </>
   );
 }
