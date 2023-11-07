@@ -47,20 +47,6 @@ export const userRegister = () => {
 
 }
 
-export const userTete = () => {
- return  useMutation(fetchLogin,{
-    onError: () => {
-      enqueueSnackbar("error try again", {
-        variant: "error",
-      });
-
-    },
-    onSuccess: (data) => {
-      console.log(data)
-    },
-  })
-
-}
 export const userCreateOrder = () =>{
   const queryClient = useQueryClient();
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -71,7 +57,10 @@ export const userCreateOrder = () =>{
       });
     },
     onSuccess: (_,data) => {
-
+      queryClient.setQueryData(["Order", undefined], (oldData: any) => [
+        ...oldData,
+        data,
+      ]);
       enqueueSnackbar("Task criada com sucesso!", { variant: "success" });
     },
   })

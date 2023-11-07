@@ -17,6 +17,7 @@ export function Select({
   required = false,
   control,
 }: InputProps) {
+  console.log(coinList)
   return (
     <Controller
       name={name}

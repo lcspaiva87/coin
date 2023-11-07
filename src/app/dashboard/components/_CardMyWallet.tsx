@@ -6,14 +6,19 @@ import Button from "@/components/ui/button";
 
 import { Icons } from "@/components/ui/icons";
 
+import { CoinData } from "@/@types/typeCoins";
 import { Popover, Transition } from "@headlessui/react";
+import axios from "axios";
 import clsx from "clsx";
 import Image from "next/image";
 import { useState } from "react";
 import { ModalAddCrypto } from "./ModalAddCrypto";
 
-export function CardMyWallet({ data }: { data: typeListCoin }) {
+export async function CardMyWallet({ data }: { data: typeListCoin }) {
   const [isOpen, setIsOpen] = useState(false);
+  const response = await axios.get<CoinData>(
+    `${process.env.NEXT_PUBLIC_REST_API_COINS}`,
+  );
 
   return (
     <>
@@ -95,7 +100,7 @@ export function CardMyWallet({ data }: { data: typeListCoin }) {
         </div>
       </div>
       <div>
-        <ModalAddCrypto isClose={setIsOpen} isOpen={isOpen} />
+        <ModalAddCrypto isClose={setIsOpen} isOpen={isOpen} data={response.data} />
       </div>
     </>
   );

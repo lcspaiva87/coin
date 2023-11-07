@@ -1,5 +1,7 @@
 "use client";
+import { CoinData } from "@/@types/typeCoins";
 import { Input } from "@/components/ui/Input";
+import { Select } from "@/components/ui/Select";
 
 import Button from "@/components/ui/button";
 import { LoadingSpinner } from "@/components/ui/loadingSpinner";
@@ -11,7 +13,7 @@ import { enqueueSnackbar } from "notistack";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 
-export function AddCryptonForm() {
+export function AddCryptonForm({ data }: { data: CoinData }) {
   const { mutate: CreateOrde, isLoading: loading } = userCreateOrder();
 
   const { userId } = getUser();
@@ -52,12 +54,12 @@ export function AddCryptonForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="mt-10 md:w-full">
-      {/* <Select
+      <Select
         name="coin"
         control={control}
-        coinList={coinList}
+        coinList={data}
         disabled={loading}
-      /> */}
+      />
       <Input
         type="number"
         name="amount"
