@@ -13,7 +13,7 @@ export function Menus({
   name: string;
 }) {
   return (
-    <Menu as="div" className="relative">
+    <Menu as="div" >
       <Menu.Button className="flex items-center">
         <Image
           width={24}
@@ -34,7 +34,7 @@ export function Menus({
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 isolate z-10 mt-3 origin-top-right rounded bg-white p-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Menu.Items className="absolute right-3 isolate z-10 mt-0 origin-top-right rounded bg-white p-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <Menu.Item>
             {({ active }) => (
               <a

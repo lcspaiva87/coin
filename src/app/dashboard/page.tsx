@@ -6,11 +6,12 @@ import { InitialSore } from "@/store/coin/initialStore";
 import axios from "axios";
 import { Metadata } from "next";
 import { cookies } from 'next/headers';
-import AsideMenu from "./components/AsideMenu";
 import CardBalance from "./components/_CardBalance";
-import CardMyWallet from "./components/_CardMyWallet";
-import DailyVariationCard from "./components/_DailyVariationCard";
+import AsideMenu from "./components/asideMenu";
+import CardMyWallet from "./components/cardMyWallet";
 import CardNFTNews from "./components/cardNFTNews";
+import DailyVariationCard from "./components/dailyVariationCard";
+
 export const metadata: Metadata = {
   title: "Dashboard",
 };
@@ -49,7 +50,7 @@ export default async function Dashboard() {
           </div>
         </div>
 
-        <CardMyWallet data={coinList} />
+        <CardMyWallet  />
       </div>
     </main>
   );

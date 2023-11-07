@@ -1,20 +1,15 @@
 "use client";
 import { typeListCoin } from "@/@types/typeListCoin";
 import FormattedNumber from "@/app/(home)/components/formattedNumber";
-
-import { CoinData } from "@/@types/typeCoins";
 import Button from "@/components/ui/button";
 import { Icons } from "@/components/ui/icons";
 import { useUser } from "@/hooks/userCoin";
 import { Popover, Transition } from "@headlessui/react";
 import clsx from "clsx";
 import Image from "next/image";
-import { useState } from "react";
 
-export default function CardMyWallet({ data }: { data: CoinData}) {
-  const [isOpen, setIsOpen] = useState(false);
-  const {coin,isLoading} = useUser()
-
+export default function CardMyWallet() {
+  const {coin} = useUser()
   return (
     <>
       <div className="shadow-lg max-sm:shadow-none max-sm:bg-transparent rounded-lg bg-white ">
@@ -25,7 +20,6 @@ export default function CardMyWallet({ data }: { data: CoinData}) {
           <Button
             dataTest="add-crypto"
             className="ml-auto h-8 w-8 rounded-full !p-0 md:h-auto md:w-auto md:!px-4 md:!py-2 flex justify-center items-center"
-            onClick={() => setIsOpen(true)}
           >
             <Icons.Plus />
             <span className="ml-2 hidden md:inline">Add crypto</span>
