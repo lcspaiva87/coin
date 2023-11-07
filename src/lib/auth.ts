@@ -1,9 +1,9 @@
 import { User } from '@/@types/typeDecodeToken'
-import Cookie from 'js-cookie'
 import decode from 'jwt-decode'
+import { parseCookies } from 'nookies'
 
 export function getUser(): User {
-  const token = Cookie.get('auth_token')
+  const{'auth_token':token} = parseCookies()
   console.log(token)
   if (!token) {
     throw new Error('Unauthenticated')

@@ -1,14 +1,18 @@
 "use client";
 import { Icons } from "@/components/ui/icons";
 
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
 import SlideOver from "./SlideOver";
-import DropdownMenu from "./dropdownMenu";
+
 
 export default function Header() {
   const [isSlideOverOpen, setIsSlideOverOpen] = useState(false);
+  const DropdownMenu = dynamic(() => import('./dropdownMenu'), {
+    ssr: false,
+  })
   const headerRef = useRef<HTMLElement>(null);
   return (
     <>
