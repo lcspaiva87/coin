@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 'use client'
-import { fetchCreateOrder, fetchListOrder, fetchLogin, fetchRegister } from '@/data/user';
+import { fetchCreateOrder, fetchLogin, fetchRegister } from '@/data/user';
 import Cookie from 'js-cookie';
 import { useRouter } from 'next/navigation';
 import { enqueueSnackbar } from "notistack";
@@ -74,15 +74,5 @@ export const userCreateOrder = () =>{
     },
   })
 }
-export const userListOrder = () =>{
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  return useMutation(fetchListOrder,{
-    onError: (erro:any) => {
-      enqueueSnackbar(erro, {
-        variant: "error",
-      });
-      console.log(erro)
-    },
 
-  })
-}
+

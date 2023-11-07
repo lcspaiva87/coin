@@ -12,7 +12,7 @@ import { enqueueSnackbar } from "notistack";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 
-export function AddCryptonForm(data:any) {
+export  default function AddCryptonForm(data:any) {
   const { mutate: CreateOrde, isLoading: loading } = userCreateOrder();
 
   const { userId } = getUser();

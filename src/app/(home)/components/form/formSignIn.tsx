@@ -21,7 +21,7 @@ const signInFormSchema = yup.object().shape({
     .min(8, "A senha deve ter pelo menos 8 caracteres"),
 });
 
-export function FormLogin() {
+export default function FormLogin() {
   const { mutate: loginMutation, isLoading: loading } = userFetch();
   const {
     handleSubmit,

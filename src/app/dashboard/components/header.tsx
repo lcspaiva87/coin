@@ -5,9 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
 import SlideOver from "./SlideOver";
-import { DropdownMenu } from "./dropdownMenu";
+import DropdownMenu from "./dropdownMenu";
 
-export function Header() {
+export default function Header() {
   const [isSlideOverOpen, setIsSlideOverOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
   return (

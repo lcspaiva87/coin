@@ -5,7 +5,7 @@ import FormattedNumber from "@/app/(home)/components/formattedNumber";
 import { Icons } from "@/components/ui/icons";
 import { useEffect, useState } from "react";
 
-export function CardBalance({ coin }: { coin: CoinData }) {
+export default function CardBalance({ coin }: { coin: CoinData }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   useEffect(() => {
     setInterval(() => {

@@ -5,7 +5,7 @@ import clsx from "clsx";
 import Marquee from "react-fast-marquee";
 import FormattedNumber from "./formattedNumber";
 
-export function Carrousel({
+export default function Carrousel({
   isLoading,
   coinList,
 }: {

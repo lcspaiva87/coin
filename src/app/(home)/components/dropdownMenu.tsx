@@ -3,10 +3,10 @@ import Button from "@/components/ui/button";
 import { Icons } from "@/components/ui/icons";
 import Link from "next/link";
 import { useRef, useState } from "react";
-import { MenuMobile } from "./SlideOver";
-import { ModalSignInTo } from "./modalSign";
-import { ModalSignUp } from "./modalSignup";
-export function DropdownMenu() {
+import MenuMobile from "./SlideOver";
+import ModalSignInTo from "./modalSign";
+import ModalSignUp from "./modalSignup";
+export default function DropdownMenu() {
   const headerRef = useRef<HTMLElement>(null);
   const carrouselRef = useRef<HTMLDivElement>(null);
   const [isSlideOverOpen, setIsSlideOverOpen] = useState(false);

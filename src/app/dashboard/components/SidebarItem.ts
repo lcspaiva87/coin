@@ -1,5 +1,5 @@
 import { Icons } from '@/components/ui/icons'
-export const SidebarItemMock = [
+ const SidebarItemMock = [
   {
     id: 1,
     title: 'Lorem ipsum',
@@ -21,3 +21,4 @@ export const SidebarItemMock = [
     icon: Icons.Chart,
   },
 ]
+export default SidebarItemMock

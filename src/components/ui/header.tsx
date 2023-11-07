@@ -1,10 +1,10 @@
 "use client";
 import { useCoin } from "@/hooks/useCoin";
 
-import { DropdownMenu } from "@/app/(home)/components/dropdownMenu";
+import DropdownMenu from "@/app/(home)/components/dropdownMenu";
 
-import { Carrousel } from "@/app/(home)/components/carrousel";
-import { Sign } from "@/app/(home)/components/sign";
+import Carrousel from "@/app/(home)/components/carrousel";
+import Sign from "@/app/(home)/components/sign";
 import Image from "next/image";
 import Link from "next/link";
 

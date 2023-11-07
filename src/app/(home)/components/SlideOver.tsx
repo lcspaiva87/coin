@@ -15,7 +15,7 @@ type Props = {
   hiddenBreakpoint?: 'md' | 'lg'
 }
 
-export const MenuMobile = ({
+export default  function  MenuMobile  ({
   side,
   children,
   isOpen,
@@ -25,7 +25,7 @@ export const MenuMobile = ({
   dialogClassName,
   dialogStyle,
   hiddenBreakpoint = 'md',
-}: Props) => {
+}: Props)  {
   return (
     <div className="isolate">
       <Transition.Root show={isOpen} as={Fragment}>

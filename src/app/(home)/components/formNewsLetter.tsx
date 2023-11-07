@@ -12,7 +12,7 @@ type FormValues = {
 const defaultValues = {
   emailForm: '',
 }
-export function NewsLetterForm() {
+export default function NewsLetterForm() {
   // const { mutate: registerUser, isLoading: loading } = useNewsLetterMutation()
   const {
     handleSubmit,

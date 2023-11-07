@@ -1,8 +1,8 @@
 
 
 import { Modal } from "@/components/ui/moda";
-import { AddCryptonForm } from "./AddCryptonForm";
-export  function ModalAddCrypto({
+import AddCryptonForm from "./AddCryptonForm";
+export default  function ModalAddCrypto({
   isOpen,
   isClose,
 data

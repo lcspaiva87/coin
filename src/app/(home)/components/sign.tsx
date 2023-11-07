@@ -1,9 +1,9 @@
 "use client";
 import Button from "@/components/ui/button";
 import { useState } from "react";
-import { ModalSignInTo } from "./modalSign";
-import { ModalSignUp } from "./modalSignup";
-export function Sign() {
+import ModalSignInTo from "./modalSign";
+import ModalSignUp from "./modalSignup";
+export default function Sign() {
   const [isOpenSignInTo, setIsOpenSignInTo] = useState(false);
   const [isOpenSignUp, setIsOpenSignUp] = useState(false);
 

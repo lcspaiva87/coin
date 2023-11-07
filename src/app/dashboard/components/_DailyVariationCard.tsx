@@ -6,7 +6,7 @@ import Image from "next/image";
 
 import { useEffect, useState } from "react";
 
-export const DailyVariationCard = ({ coin }: { coin: CoinData }) => {
+export default function DailyVariationCard  ({ coin }: { coin: CoinData }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   useEffect(() => {
     setInterval(() => {

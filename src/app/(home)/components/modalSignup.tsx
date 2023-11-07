@@ -2,9 +2,9 @@
 
 import { BrandName } from "@/components/ui/brandName";
 import { Modal } from "@/components/ui/moda";
-import { FormSignUp } from "./form/formSignup";
+import FormSignUp from "./form/formSignup";
 
-export function ModalSignUp({
+export  default function ModalSignUp({
   isOpen,
   isClose,
   isOpenModalSignIn,

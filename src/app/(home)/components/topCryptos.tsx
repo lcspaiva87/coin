@@ -1,7 +1,7 @@
 import { CoinData } from "@/@types/typeCoins"
 import axios from "axios"
 import TopCryptoTable from "./topCryptoTable"
-export const TopCryptos = async () => {
+export  default async function TopCryptos  ()  {
   const response = await axios.get<CoinData>(
     'https://raw.githubusercontent.com/aayushah711/coingecko/master/popular_coins.json',
     {

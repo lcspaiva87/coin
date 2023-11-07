@@ -1,23 +1,21 @@
 import { Icons } from "@/components/ui/icons";
-import { getUser } from "@/lib/auth";
 import { Menu, Transition } from "@headlessui/react";
 import clsx from "clsx";
-import Image from "next/image";
 import { Fragment } from "react";
 
-export function DropdownMenu({ className }: { className: string }) {
-  const { name, avatarUrl } = getUser()
+export  default function DropdownMenu({ className }: { className: string }) {
+  // const { name, avatarUrl } = getUser()
   return (
     <Menu as="div" className={clsx("relative", className)}>
       <Menu.Button className="flex items-center">
-        <Image
+        {/* <Image
           width={24}
           height={24}
           src={avatarUrl}
           alt={name}
           className="mr-2 h-[2rem] w-[2rem] rounded-full"
-        />
-         <p className="mr-1 hidden text-label md:block">{name}</p>
+        /> */}
+         {/* <p className="mr-1 hidden text-label md:block">{name}</p> */}
          <Icons.ChevronDown className="h-2 w-2" />
       </Menu.Button>
       <Transition

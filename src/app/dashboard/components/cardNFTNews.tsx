@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export function CardNFTNews() {
+export default function CardNFTNews() {
   return (
     <div className="flex flex-wrap shadow-lg rounded-lg w-1/2 max-sm:min-h-36 bg-white sm:h-28">
       <div className="flex flex-col w-1/2 max-sm:w-full p-4 max-sm:p-2 max-sm:h-20">

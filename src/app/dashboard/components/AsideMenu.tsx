@@ -3,9 +3,9 @@ import { SideBarType } from "@/@types/typeSideBar";
 import { Popover, Transition } from "@headlessui/react";
 
 import { useState } from "react";
-import { SidebarItemMock } from "./SidebarItem";
+import SidebarItemMock from "./SidebarItem";
 
-export function AsideMenu() {
+export default function AsideMenu() {
   const [isShowing, setIsShowing] = useState(
     Array(SidebarItemMock.length).fill(false),
   );

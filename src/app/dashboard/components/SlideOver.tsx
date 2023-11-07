@@ -16,7 +16,7 @@ type Props = {
   hiddenBreakpoint?: 'md' | 'lg'
 }
 
-const SlideOver = ({
+const  SlideOver = ({
   side,
   children,
   isOpen,

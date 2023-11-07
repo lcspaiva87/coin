@@ -8,7 +8,7 @@ type InputProps = {
   control?: any
   dataTest?: string
 }
-export function CheckboxField({
+export default function CheckboxField({
   name,
   required,
   control,

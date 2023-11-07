@@ -3,7 +3,7 @@ import { QueryProvider } from "@/provider/queryProvider";
 import { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "../globals.css";
-import { Header } from "./components/header";
+import Header from "./components/header";
 
 const roboto = Roboto({ subsets: ["latin"], weight: ["400", "700"] });
 
