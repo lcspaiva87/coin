@@ -4,7 +4,6 @@ import { parseCookies } from 'nookies'
 
 export function getUser(): User {
   const{'auth_token':token} = parseCookies()
-  console.log(token)
   if (!token) {
     throw new Error('Unauthenticated')
   }

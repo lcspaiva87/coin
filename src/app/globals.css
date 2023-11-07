@@ -7,9 +7,7 @@
     @apply sm:max-w-[768px] md:max-w-[1440px];
   }
 }
-html {
-  @apply h-screen;
-}
+
 
 #__next,
 body {

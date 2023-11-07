@@ -5,7 +5,7 @@ import FormattedNumber from "@/app/(home)/components/formattedNumber";
 import { CoinData } from "@/@types/typeCoins";
 import Button from "@/components/ui/button";
 import { Icons } from "@/components/ui/icons";
-import { useCoinStore } from "@/store/coin";
+import { useUser } from "@/hooks/userCoin";
 import { Popover, Transition } from "@headlessui/react";
 import clsx from "clsx";
 import Image from "next/image";
@@ -14,7 +14,7 @@ import ModalAddCrypto from "./ModalAddCrypto";
 
 export default function CardMyWallet({ data }: { data: CoinData}) {
   const [isOpen, setIsOpen] = useState(false);
-  const { coin } = useCoinStore.getState().state
+  const {coin,isLoading} = useUser()
 
   return (
     <>

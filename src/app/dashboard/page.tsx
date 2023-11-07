@@ -26,7 +26,6 @@ export default async function Dashboard() {
       },
     },
   )
-
   const resCoin = await axios.get<typeListCoin[]>(
     `${process.env.NEXT_PUBLIC_REST_API_ENDPOINT}/coin`,
     {

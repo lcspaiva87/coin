@@ -1,6 +1,7 @@
 
 import Cookie from 'js-cookie';
 
+import { parseCookies } from 'nookies';
 import { get, post } from "./client/http-client";
 
 interface User {
@@ -50,7 +51,8 @@ export const fetchCreateOrder= async ({acronym,amount,icon,name,percentage,price
     return  response;
 }
 
-export const fetListOrder= async (token:any) => {
+export const fetListOrder= async () => {
+  const{'auth_token':token} = parseCookies()
   const response = await get('/coin',token);
     return  response;
 }
