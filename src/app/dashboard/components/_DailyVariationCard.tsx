@@ -26,13 +26,13 @@ export default function DailyVariationCard  ({ coin }: { coin: CoinData }) {
           Daily Variation
         </p>
         <div className="flex flex-col max-sm:flex-row max-sm:items-center max-sm:gap-4 max-sm:text-center">
-          <div className="flex gap-2 text-center mt-4 max-sm:mt-2 mb-2">
+          <div className="flex gap-2 text-center items-center max-sm:mt-2 mb-2">
             <Image
               width={0}
               height={0}
               alt={coin[currentIndex]?.name}
               src={coin[currentIndex]?.image}
-              className="h-8 w-4 md:h-4 md:w-4"
+              className="h-4  w-4 md:h-4 md:w-4"
             />
             <span className="text-small-label md:text-label">
               {coin[currentIndex]?.symbol}
