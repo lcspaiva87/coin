@@ -14,7 +14,6 @@ import Image from "next/image";
 export default function TableMyWallet() {
   const { isOpen, openModal, closeModal  } = useModalStore();
   const { coin, isLoading ,isError } = useCoin();
-  console.log("isError",isError);
   return (
     <div className="shadow-lg max-sm:shadow-none max-sm:bg-transparent rounded-lg bg-white ">
       <hr className=" mt-6 text-secondary-300 md:hidden" />
@@ -61,8 +60,8 @@ export default function TableMyWallet() {
         </div>
       </div>
       <div className="flex flex-col items-center justify-center px-14 py-10 text-center ">
-      {!!isLoading &&(<LoadingSpinner className="mx-auto" />)}
-        {!coin.length && (
+      {isLoading && !coin.length &&(<LoadingSpinner className="mx-auto" />)}
+        {!isLoading &&!coin.length && (
           <>
             <Icons.NoWallets className="h-12 md:h-[68px]" />
             <p className="mt-4 font-bold md:mt-6 md:text-h5">

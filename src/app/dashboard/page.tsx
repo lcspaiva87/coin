@@ -20,14 +20,7 @@ export default async function Dashboard() {
 
   const cookieStore = cookies().get('auth_token')?.value
   const response = await axios.get<CoinData>(
-    `${process.env.NEXT_PUBLIC_REST_API_COINS}`,
-    {
-      timeout: 50000,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    },
-  )
+    `${process.env.NEXT_PUBLIC_REST_API_COINS}`)
   const resCoin = await axios.get<typeListCoin[]>(
     `${process.env.NEXT_PUBLIC_REST_API_ENDPOINT}/coin`,
     {
