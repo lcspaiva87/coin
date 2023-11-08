@@ -23,7 +23,7 @@ export function Menus({
           className="mr-2 h-[2rem] w-[2rem] rounded-full"
         />
         <p className="mr-1 hidden text-label md:block">{name}</p>
-        <Icons.ChevronDown className="h-2 w-2" />
+        <Icons.ChevronDown className="h-3 w-3" />
       </Menu.Button>
       <Transition
         as={Fragment}
@@ -34,7 +34,7 @@ export function Menus({
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-3 isolate z-10 mt-0 origin-top-right rounded bg-white p-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Menu.Items className="absolute right-4 isolate z-10 mt-0 origin-top-right rounded bg-white p-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <Menu.Item>
             {({ active }) => (
               <a

@@ -4,15 +4,17 @@ import FormattedNumber from "@/app/(home)/components/formattedNumber";
 import Button from "@/components/ui/button";
 import { Icons } from "@/components/ui/icons";
 import { useUser } from "@/hooks/userCoin";
+import useModalStore from "@/store/modal";
+
 import { Popover, Transition } from "@headlessui/react";
 import clsx from "clsx";
 import Image from "next/image";
 
-export default function CardMyWallet() {
-  const {coin} = useUser()
-  return (
-    <>
-      <div className="shadow-lg max-sm:shadow-none max-sm:bg-transparent rounded-lg bg-white ">
+export default function TableMyWallet() {
+  const { coin } = useUser();
+  const { isOpen, openModal, closeModal } = useModalStore();
+  return(
+    <div className="shadow-lg max-sm:shadow-none max-sm:bg-transparent rounded-lg bg-white ">
         <hr className=" mt-6 text-secondary-300 md:hidden" />
         <div className="flex mt-3 items-center gap-4 rounded-t-lg px-2  md:flex md:p-6">
           <Icons.CryptoWallet className="h-6 w-6 md:h-8 md:w-8 " />
@@ -20,6 +22,7 @@ export default function CardMyWallet() {
           <Button
             dataTest="add-crypto"
             className="ml-auto h-8 w-8 rounded-full !p-0 md:h-auto md:w-auto md:!px-4 md:!py-2 flex justify-center items-center"
+            onClick={openModal}
           >
             <Icons.Plus />
             <span className="ml-2 hidden md:inline">Add crypto</span>
@@ -88,10 +91,7 @@ export default function CardMyWallet() {
           )}
         </div>
       </div>
-
-      {/* <ModalAddCrypto isClose={setIsOpen} isOpen={isOpen} data={data} /> */}
-    </>
-  );
+  )
 }
 const SingleEntryCard = (coin: typeListCoin) => {
   return (

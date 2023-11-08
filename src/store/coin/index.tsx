@@ -4,7 +4,6 @@ import { create } from 'zustand'
 type ActionProps = {
   addCoin: (coin: typeListCoin) => void
 }
-
 type StoreProps = {
   state: {
     coin: typeListCoin[]

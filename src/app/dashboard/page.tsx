@@ -8,9 +8,9 @@ import { Metadata } from "next";
 import { cookies } from 'next/headers';
 import CardBalance from "./components/_CardBalance";
 import AsideMenu from "./components/asideMenu";
-import CardMyWallet from "./components/cardMyWallet";
 import CardNFTNews from "./components/cardNFTNews";
 import DailyVariationCard from "./components/dailyVariationCard";
+import CardMyWallet from "./components/myWallet";
 
 export const metadata: Metadata = {
   title: "Dashboard",
