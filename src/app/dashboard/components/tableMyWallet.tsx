@@ -3,7 +3,6 @@ import { typeListCoin } from "@/@types/typeListCoin";
 import FormattedNumber from "@/app/(home)/components/formattedNumber";
 import Button from "@/components/ui/button";
 import { Icons } from "@/components/ui/icons";
-import { LoadingSpinner } from "@/components/ui/loadingSpinner";
 import { useCoin } from "@/hooks/userCoin";
 import useModalStore from "@/store/modal";
 
@@ -12,11 +11,10 @@ import clsx from "clsx";
 import Image from "next/image";
 
 export default function TableMyWallet() {
-  const { isOpen, openModal, closeModal } = useModalStore();
+  const { openModal,  } = useModalStore();
   const { coin, isLoading, isError } = useCoin();
-  /*flex flex-col items-center justify-center px-14 py-[10rem] text-center  */
   return (
-    <div className="shadow-lg max-sm:shadow-none max-sm:bg-transparent rounded-lg bg-white ">
+    <div className="shadow-lg max-sm:shadow-none max-sm:bg-transparent rounded-lg bg-white  ">
       <hr className=" mt-6 text-secondary-300 md:hidden" />
       <div className="flex mt-3 items-center gap-4 rounded-t-lg px-2  md:flex md:p-6">
         <Icons.CryptoWallet className="h-6 w-6 md:h-8 md:w-8 " />
@@ -61,15 +59,8 @@ export default function TableMyWallet() {
         </div>
       </div>
 
-      <div
-        className={clsx({
-          "flex flex-col items-center justify-center px-14  py-[6rem] lg:py-[10rem] text-center":
-            !coin.length && !isLoading,
-          "flex flex-col items-center justify-center px-14 pb-[15rem] text-center":
-            coin.length > 0,
-        })}
-      >
-        {isLoading && !coin.length && <LoadingSpinner className="flex justify-center py-[14rem] items-center" />}
+      <div className="flex flex-col items-center justify-center px-14 py-10 text-center ">
+        {/* {isLoading && !coin.length && <LoadingSpinner className="flex justify-center py-[14rem] items-center" />} */}
         {!isLoading && !coin.length && (
           <>
             <Icons.NoWallets className="h-12 md:h-[68px]" />
@@ -107,7 +98,7 @@ export default function TableMyWallet() {
 }
 const SingleEntryCard = (coin: typeListCoin) => {
   return (
-    <div className="overflow-hidden  rounded-lg shadow-[0px_8px_16px_rgba(0,0,0,0.1)]">
+    <div className="overflow-hidden  rounded-lg bg-white shadow-[0px_8px_16px_rgba(0,0,0,0.1)]">
       <div className="flex items-center bg-primary-100 px-2 py-4 text-small-label">
         <Image src={coin.icon} width={16} height={16} alt="" />
         <span className="ml-2 text-xs font-bold">{coin.name}</span>

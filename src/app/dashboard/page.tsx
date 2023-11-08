@@ -1,6 +1,7 @@
 
 import { CoinData } from "@/@types/typeCoins";
 import { typeListCoin } from "@/@types/typeListCoin";
+import { Footer } from "@/components/ui/footer";
 import { useCoinStore } from "@/store/coin";
 import { InitialSore } from "@/store/coin/initialStore";
 import axios from "axios";
@@ -32,6 +33,8 @@ export default async function Dashboard() {
   const coinList = response.data
   useCoinStore.setState({ state: { coin: resCoin.data ?? [] } })
   return (
+    <>
+
     <main className="bg-secondary-100 flex flex-1">
       <AsideMenu />
       <InitialSore coin={resCoin.data} />
@@ -46,6 +49,9 @@ export default async function Dashboard() {
 
         <CardMyWallet  />
       </div>
+
     </main>
+    <Footer />
+    </>
   );
 }

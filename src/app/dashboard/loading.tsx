@@ -5,7 +5,7 @@ import data from "@/assets/lotties/loading.json";
 
 const Loading = () => {
   return (
-    <div className="max-w-[300px]">
+    <div className="h-screen w-screen">
       <Lottie data-testid="loading-lottie" animationData={data} loop />
     </div>
   );
