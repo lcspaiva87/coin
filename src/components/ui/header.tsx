@@ -1,5 +1,5 @@
 "use client";
-import { useCoin } from "@/hooks/useCoin";
+import { useCoin } from "@/hooks/userCoin";
 
 import DropdownMenu from "@/app/(home)/components/dropdownMenu";
 
@@ -9,7 +9,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export function Header() {
-  const { isLoading, listCoin: data } = useCoin();
+  const { isLoading, coin: data } = useCoin();
   return (
     <header
       className="text-sm xl:max-w-[1240px] 2xl:max-w-[1400px] lg: container grid w-full grid-cols-[auto] grid-rows-[1fr_auto]   py-2 shadow-md
