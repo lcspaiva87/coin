@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { Input } from "@/components/ui/Input";
 import { Select } from "@/components/ui/Select";
 import Button from "@/components/ui/button";
@@ -10,10 +10,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 type FormValues = {
-  amount:number
-  coin:any
+  amount: number;
+  coin: any;
 };
-export default  function FormCreateOrder({ userId, data }: any) {
+export default function FormCreateOrder({ userId, data }: any) {
   const { createMutation, isLoading: loading, refetch } = useCoin();
   const { isOpen, openModal, closeModal } = useModalStore();
 
@@ -29,22 +29,20 @@ export default  function FormCreateOrder({ userId, data }: any) {
     resolver: yupResolver(signInFormSchema),
     defaultValues: {
       amount: 0,
-      coin:[]
+      coin: [],
     },
   });
 
-  async function onSubmit({amount,coin}:FormValues) {
-    console.log(coin)
-    createMutation.mutate(
-      {
-        amount: amount,
-        icon: coin.image,
-        name: coin.name,
-        percentage: Number(coin.price_change_percentage_24h),
-        priceUsd: Number(coin.current_price),
-        userId: String(userId),
-        acronym: String(coin?.symbol),
-      });
+  async function onSubmit({ amount, coin }: FormValues) {
+    createMutation.mutate({
+      amount: amount,
+      icon: coin.image,
+      name: coin.name,
+      percentage: Number(coin.price_change_percentage_24h),
+      priceUsd: Number(coin.current_price),
+      userId: String(userId),
+      acronym: String(coin?.symbol),
+    });
 
     closeModal();
   }
