@@ -3,7 +3,7 @@
 import { getUser } from "@/lib/auth";
 
 import FormCreateOrder from "./formCreateOrder";
-export default function ModalAddCrypto() {
+export default function ModalAddCrypto(data:any) {
 
   const { userId } = getUser();
 
@@ -12,6 +12,6 @@ export default function ModalAddCrypto() {
 
 
   return (
-    <FormCreateOrder userId={userId}  />
+    <FormCreateOrder userId={userId} data={data}  />
   );
 }

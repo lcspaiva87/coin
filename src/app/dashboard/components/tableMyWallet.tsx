@@ -3,7 +3,7 @@ import { typeListCoin } from "@/@types/typeListCoin";
 import FormattedNumber from "@/app/(home)/components/formattedNumber";
 import Button from "@/components/ui/button";
 import { Icons } from "@/components/ui/icons";
-import { useUser } from "@/hooks/userCoin";
+import { useCoin } from "@/hooks/userCoin";
 import useModalStore from "@/store/modal";
 
 import { Popover, Transition } from "@headlessui/react";
@@ -11,7 +11,7 @@ import clsx from "clsx";
 import Image from "next/image";
 
 export default function TableMyWallet() {
-  const { coin } = useUser();
+  const { coin } = useCoin();
   const { isOpen, openModal, closeModal } = useModalStore();
   return(
     <div className="shadow-lg max-sm:shadow-none max-sm:bg-transparent rounded-lg bg-white ">

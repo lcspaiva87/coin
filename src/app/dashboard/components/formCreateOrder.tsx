@@ -1,14 +1,19 @@
 "use client"
+import { Input } from "@/components/ui/Input";
+import { Select } from "@/components/ui/Select";
+import Button from "@/components/ui/button";
+import { LoadingSpinner } from "@/components/ui/loadingSpinner";
 import { Modal } from "@/components/ui/moda";
-import { useUser } from "@/hooks/userCoin";
+import { useCoin } from "@/hooks/userCoin";
 import useModalStore from "@/store/modal";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { enqueueSnackbar } from "notistack";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
-export default function FormCreateOrder({ userId }: any) {
-  const { createMutation, isLoading: loading, refetch } = useUser();
+export default  function FormCreateOrder({ userId, data }: any) {
+  const { createMutation, isLoading: loading, refetch } = useCoin();
   const { isOpen, openModal, closeModal } = useModalStore();
+
   const signInFormSchema = yup.object().shape({
     amount: yup.number().required("amount obrigatório").min(0.00001),
   });
@@ -22,6 +27,7 @@ export default function FormCreateOrder({ userId }: any) {
       amount: 0,
     },
   });
+  console.log(data)
   async function onSubmit(data: any) {
     createMutation.mutate(
       {
@@ -45,16 +51,17 @@ export default function FormCreateOrder({ userId }: any) {
         },
       },
     );
+    closeModal();
     refetch();
   }
   return (
     <Modal isOpen={isOpen} isClose={closeModal}>
       <h2 className="text-center">Add Crypto</h2>
-      {/* <form onSubmit={handleSubmit(onSubmit)} className="mt-10 md:w-full">
+      <form onSubmit={handleSubmit(onSubmit)} className="mt-10 md:w-full">
         <Select
           name="coin"
           control={control}
-          coinList={data}
+          coinList={data.data}
           disabled={loading}
         />
         <Input
@@ -76,7 +83,7 @@ export default function FormCreateOrder({ userId }: any) {
         >
           {loading ? <LoadingSpinner className="mx-auto" /> : "Subscribe"}
         </Button>
-      </form> */}
+      </form>
     </Modal>
   );
 }

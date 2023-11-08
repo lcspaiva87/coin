@@ -3,7 +3,7 @@ import { fetListOrder, fetchCreateOrder } from "@/data/user";
 import { enqueueSnackbar } from "notistack";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 
-export const useUser=(id?:typeListCoin[])=>{
+export const useCoin=(id?:typeListCoin[])=>{
   const queryClient = useQueryClient();
   const createMutation = useMutation(fetchCreateOrder, {
     onError: () => {
