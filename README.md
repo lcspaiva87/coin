@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+#This project was developed using the following technologies:
 
-First, run the development server:
+- [ReactJS](https://reactjs.org)
+- [Axios](https://github.com/axios/axios)
+- [tailwindcss](https://tailwindcss.com/)
+- [NextJs](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [React-query](https://tanstack.com/query/v3/)
+- [yup](https://github.com/jquense/yup)
+- [Zustand](https://github.com/pmndrs/zustand)
+## How to make it work on your machine
+Execute this command to install all dependencies
+```sh
+Execute this command to install all dependencies
+$ git clone https://github.com/lcspaiva87/coin-synch && cd coin-synch
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Install the dependencies
+yarn
+##create a file in the root of the project called env.local and add these variables
+NEXT_PUBLIC_REST_API_ENDPOINT
+NEXT_PUBLIC_PAGE
+value of the variable NEXT_PUBLIC_PAGE if it is local, I put a dashboard if it is going to upload to the server, add Dashboard
+# start project
+yarn run dev
+
+##Link Api
+https://github.com/lcspaiva87/server-EduSynch
+# Install the dependencies
+yarn
+# start project
+yarn run dev
+
+## 🤔 how to contribute
+- Fork this repository;
+- Create a branch with your feature: `git checkout -b my-feature`;
+- Commit your changes: `git commit -m 'feat: My new feature'`;
+- Push to your branch: `git push origin my-feature`.
+
+
+After your pull request is merged, you can delete your branch.
+
+---
+
+Made with ♥ by Lucas Antonio
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
