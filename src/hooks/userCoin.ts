@@ -1,3 +1,4 @@
+'use client';
 import { typeListCoin } from "@/@types/typeListCoin";
 import { fetListOrder, fetchCreateOrder } from "@/data/user";
 import { enqueueSnackbar } from "notistack";
@@ -7,15 +8,13 @@ export const useCoin=(id?:typeListCoin[])=>{
   const queryClient = useQueryClient();
   const createMutation = useMutation(fetchCreateOrder, {
     onError: () => {
-      enqueueSnackbar("Erro ao criar task, tente novamente", {
+      enqueueSnackbar("Erro ao criar cryptom, tente novamente", {
         variant: "error",
       });
     },
     onSuccess: () => {
-      // Atualize a consulta "Coin" após a criação bem-sucedida
       queryClient.invalidateQueries(["Coin", id]);
-
-      enqueueSnackbar("Task criada com sucesso!", { variant: "success" });
+      enqueueSnackbar("cryptom criada com sucesso!", { variant: "success" });
     },
   });
   const{
@@ -26,7 +25,9 @@ export const useCoin=(id?:typeListCoin[])=>{
   }=useQuery({
     queryKey: ["Coin", id],
     queryFn: () => fetListOrder(),
+    staleTime: 30000
   })
+  console.log("isLoading",isLoading)
   return{
     coin: coin ?? [],
     createMutation,

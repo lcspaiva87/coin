@@ -17,6 +17,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Dashboard() {
+
   const cookieStore = cookies().get('auth_token')?.value
   const response = await axios.get<CoinData>(
     `${process.env.NEXT_PUBLIC_REST_API_COINS}`,

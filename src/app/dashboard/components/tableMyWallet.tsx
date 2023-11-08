@@ -12,8 +12,9 @@ import clsx from "clsx";
 import Image from "next/image";
 
 export default function TableMyWallet() {
-  const { isOpen, openModal, closeModal } = useModalStore();
-  const { coin, isLoading } = useCoin();
+  const { isOpen, openModal, closeModal  } = useModalStore();
+  const { coin, isLoading ,isError } = useCoin();
+  console.log("isError",isError);
   return (
     <div className="shadow-lg max-sm:shadow-none max-sm:bg-transparent rounded-lg bg-white ">
       <hr className=" mt-6 text-secondary-300 md:hidden" />
@@ -29,6 +30,7 @@ export default function TableMyWallet() {
           <span className="ml-2 hidden md:inline">Add crypto</span>
         </Button>
       </div>
+
       <div className=" max-h-[400px] w-full overflow-auto  scrollbar-hide">
         <div className="mt-4 grid grid-cols-2 gap-4  md:hidden">
           {coin.map(
@@ -59,6 +61,7 @@ export default function TableMyWallet() {
         </div>
       </div>
       <div className="flex flex-col items-center justify-center px-14 py-10 text-center ">
+      {!!isLoading &&(<LoadingSpinner className="mx-auto" />)}
         {!coin.length && (
           <>
             <Icons.NoWallets className="h-12 md:h-[68px]" />
@@ -83,15 +86,9 @@ export default function TableMyWallet() {
                 </tr>
               </thead>
               <tbody>
-                {isLoading ? (
-                  <LoadingSpinner className="mx-auto" />
-                ) : (
-                  <>
-                    {coin.map((coin: typeListCoin, index: number) => (
-                      <Row coin={coin} index={index} key={coin.id} />
-                    ))}
-                  </>
-                )}
+                {coin.map((coin: typeListCoin, index: number) => (
+                  <Row coin={coin} index={index} key={coin.id} />
+                ))}
               </tbody>
             </table>
           </div>

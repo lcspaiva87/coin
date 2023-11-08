@@ -9,36 +9,43 @@ import useModalStore from "@/store/modal";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
+type FormValues = {
+  amount:number
+  coin:any
+};
 export default  function FormCreateOrder({ userId, data }: any) {
   const { createMutation, isLoading: loading, refetch } = useCoin();
   const { isOpen, openModal, closeModal } = useModalStore();
 
   const signInFormSchema = yup.object().shape({
     amount: yup.number().required("amount obrigatório").min(0.00001),
+    coin: yup.object().required("coin obrigatório"),
   });
   const {
     handleSubmit,
     control,
     formState: { errors },
-  } = useForm({
+  } = useForm<FormValues>({
     resolver: yupResolver(signInFormSchema),
     defaultValues: {
       amount: 0,
+      coin:[]
     },
   });
 
-  async function onSubmit(data: any) {
+  async function onSubmit({amount,coin}:FormValues) {
+    console.log(coin)
     createMutation.mutate(
       {
-        amount: Number(data.amount),
-        icon: data?.coin?.image,
-        name: data?.coin?.name,
-        percentage: Number(data?.coin.price_change_percentage_24h),
-        priceUsd: Number(data?.coin.current_price),
+        amount: amount,
+        icon: coin.image,
+        name: coin.name,
+        percentage: Number(coin.price_change_percentage_24h),
+        priceUsd: Number(coin.current_price),
         userId: String(userId),
-        acronym: String(data?.coin?.symbol),
+        acronym: String(coin?.symbol),
       });
-    refetch();
+
     closeModal();
   }
   return (
