@@ -3,6 +3,7 @@ import { typeListCoin } from "@/@types/typeListCoin";
 import FormattedNumber from "@/app/(home)/components/formattedNumber";
 import Button from "@/components/ui/button";
 import { Icons } from "@/components/ui/icons";
+import { LoadingSpinner } from "@/components/ui/loadingSpinner";
 import { useCoin } from "@/hooks/userCoin";
 import useModalStore from "@/store/modal";
 
@@ -11,87 +12,93 @@ import clsx from "clsx";
 import Image from "next/image";
 
 export default function TableMyWallet() {
-  const { coin } = useCoin();
   const { isOpen, openModal, closeModal } = useModalStore();
-  return(
+  const { coin, isLoading } = useCoin();
+  return (
     <div className="shadow-lg max-sm:shadow-none max-sm:bg-transparent rounded-lg bg-white ">
-        <hr className=" mt-6 text-secondary-300 md:hidden" />
-        <div className="flex mt-3 items-center gap-4 rounded-t-lg px-2  md:flex md:p-6">
-          <Icons.CryptoWallet className="h-6 w-6 md:h-8 md:w-8 " />
-          <span className="text-h5 font-bold md:text-h4">My Wallet</span>
-          <Button
-            dataTest="add-crypto"
-            className="ml-auto h-8 w-8 rounded-full !p-0 md:h-auto md:w-auto md:!px-4 md:!py-2 flex justify-center items-center"
-            onClick={openModal}
-          >
-            <Icons.Plus />
-            <span className="ml-2 hidden md:inline">Add crypto</span>
-          </Button>
-        </div>
-        <div className=" max-h-[400px] w-full overflow-auto  scrollbar-hide">
-          <div className="mt-4 grid grid-cols-2 gap-4  md:hidden">
-            {coin.map(
-              ({
-                acronym,
-                amount,
-                icon,
-                id,
-                name,
-                percentage,
-                priceUsd,
-                userId,
-              }: typeListCoin) => (
-                <SingleEntryCard
-                  coin={coin}
-                  id={id}
-                  name={name}
-                  icon={icon}
-                  priceUsd={priceUsd}
-                  percentage={percentage}
-                  amount={amount}
-                  userId={userId}
-                  acronym={acronym}
-                  key={id}
-                />
-              ),
-            )}
-          </div>
-        </div>
-        <div className="flex flex-col items-center justify-center px-14 py-10 text-center ">
-          {!coin.length && (
-            <>
-              <Icons.NoWallets className="h-12 md:h-[68px]" />
-              <p className="mt-4 font-bold md:mt-6 md:text-h5">
-                Nothing here yet...
-              </p>
-              <p className="mt-2 text-small-label md:text-label">
-                Add a crypto and start earning
-              </p>
-            </>
-          )}
-          {coin.length > 0 && (
-            <div className=" max-h-[400px] w-full overflow-auto  scrollbar-hide">
-              <table className=" hidden w-full table-auto text-left md:table">
-                <thead>
-                  <tr className="text-left">
-                    <Th className="w-1/12">#</Th>
-                    <Th className="w-1/3">Crypto</Th>
-                    <Th className="w-1/3">Holdings</Th>
-                    <Th className="w-1/3">Change</Th>
-                    <Th className="w-1/12">Trade</Th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {coin.map((coin: typeListCoin, index: number) => (
-                    <Row coin={coin} index={index} key={coin.id} />
-                  ))}
-                </tbody>
-              </table>
-            </div>
+      <hr className=" mt-6 text-secondary-300 md:hidden" />
+      <div className="flex mt-3 items-center gap-4 rounded-t-lg px-2  md:flex md:p-6">
+        <Icons.CryptoWallet className="h-6 w-6 md:h-8 md:w-8 " />
+        <span className="text-h5 font-bold md:text-h4">My Wallet</span>
+        <Button
+          dataTest="add-crypto"
+          className="ml-auto h-8 w-8 rounded-full !p-0 md:h-auto md:w-auto md:!px-4 md:!py-2 flex justify-center items-center"
+          onClick={openModal}
+        >
+          <Icons.Plus />
+          <span className="ml-2 hidden md:inline">Add crypto</span>
+        </Button>
+      </div>
+      <div className=" max-h-[400px] w-full overflow-auto  scrollbar-hide">
+        <div className="mt-4 grid grid-cols-2 gap-4  md:hidden">
+          {coin.map(
+            ({
+              acronym,
+              amount,
+              icon,
+              id,
+              name,
+              percentage,
+              priceUsd,
+              userId,
+            }: typeListCoin) => (
+              <SingleEntryCard
+                coin={coin}
+                id={id}
+                name={name}
+                icon={icon}
+                priceUsd={priceUsd}
+                percentage={percentage}
+                amount={amount}
+                userId={userId}
+                acronym={acronym}
+                key={id}
+              />
+            ),
           )}
         </div>
       </div>
-  )
+      <div className="flex flex-col items-center justify-center px-14 py-10 text-center ">
+        {!coin.length && (
+          <>
+            <Icons.NoWallets className="h-12 md:h-[68px]" />
+            <p className="mt-4 font-bold md:mt-6 md:text-h5">
+              Nothing here yet...
+            </p>
+            <p className="mt-2 text-small-label md:text-label">
+              Add a crypto and start earning
+            </p>
+          </>
+        )}
+        {coin.length > 0 && (
+          <div className=" max-h-[400px] w-full overflow-auto  scrollbar-hide">
+            <table className=" hidden w-full table-auto text-left md:table">
+              <thead>
+                <tr className="text-left">
+                  <Th className="w-1/12">#</Th>
+                  <Th className="w-1/3">Crypto</Th>
+                  <Th className="w-1/3">Holdings</Th>
+                  <Th className="w-1/3">Change</Th>
+                  <Th className="w-1/12">Trade</Th>
+                </tr>
+              </thead>
+              <tbody>
+                {isLoading ? (
+                  <LoadingSpinner className="mx-auto" />
+                ) : (
+                  <>
+                    {coin.map((coin: typeListCoin, index: number) => (
+                      <Row coin={coin} index={index} key={coin.id} />
+                    ))}
+                  </>
+                )}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
+    </div>
+  );
 }
 const SingleEntryCard = (coin: typeListCoin) => {
   return (

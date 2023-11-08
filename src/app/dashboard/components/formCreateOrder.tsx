@@ -7,7 +7,6 @@ import { Modal } from "@/components/ui/moda";
 import { useCoin } from "@/hooks/userCoin";
 import useModalStore from "@/store/modal";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { enqueueSnackbar } from "notistack";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 export default  function FormCreateOrder({ userId, data }: any) {
@@ -27,7 +26,7 @@ export default  function FormCreateOrder({ userId, data }: any) {
       amount: 0,
     },
   });
-  console.log(data)
+
   async function onSubmit(data: any) {
     createMutation.mutate(
       {
@@ -38,21 +37,9 @@ export default  function FormCreateOrder({ userId, data }: any) {
         priceUsd: Number(data?.coin.current_price),
         userId: String(userId),
         acronym: String(data?.coin?.symbol),
-      },
-
-      {
-        onError: (error: any) => {
-          Object.keys(error?.response?.data).forEach((field: any) => {
-            enqueueSnackbar(error.response.data.message, {
-              variant: "error",
-            });
-            console.log(error.response.data.message);
-          });
-        },
-      },
-    );
-    closeModal();
+      });
     refetch();
+    closeModal();
   }
   return (
     <Modal isOpen={isOpen} isClose={closeModal}>

@@ -1,4 +1,3 @@
-import { Footer } from "@/components/ui/footer";
 import { cn } from "@/lib/utils";
 import { QueryProvider } from "@/provider/queryProvider";
 import { Metadata } from "next";
@@ -24,7 +23,7 @@ export default function RootLayout({
       <body className={(cn(roboto.className), "h-screen flex flex-col")}>
         <Header />
         <QueryProvider>{children}</QueryProvider>
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );
