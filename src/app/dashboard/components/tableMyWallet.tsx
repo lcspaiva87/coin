@@ -59,7 +59,7 @@ export default function TableMyWallet() {
           )}
         </div>
       </div>
-      <div className="flex flex-col items-center justify-center px-14 py-10 text-center ">
+      <div className="flex flex-col items-center justify-center px-14 py-[10rem] text-center ">
       {isLoading && !coin.length &&(<LoadingSpinner className="mx-auto" />)}
         {!isLoading &&!coin.length && (
           <>
