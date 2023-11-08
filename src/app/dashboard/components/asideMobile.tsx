@@ -10,7 +10,7 @@ const AsideMobile= () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const headerRef = useRef<HTMLElement>(null)
   return (
-    <div className="lg:hidden">
+    <div className="lg:hidden   ">
       <button
         className="place-self-start lg:hidden"
         onClick={() => setIsSlideOverOpen((prev) => !prev)}
