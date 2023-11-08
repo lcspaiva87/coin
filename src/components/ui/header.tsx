@@ -1,21 +1,20 @@
-"use client";
-import { useCoin } from "@/hooks/userCoin";
 
 import DropdownMenu from "@/app/(home)/components/dropdownMenu";
 
 import Carrousel from "@/app/(home)/components/carrousel";
 import Sign from "@/app/(home)/components/sign";
+import { listCoin } from "@/data/fetchCoin";
 import Image from "next/image";
 import Link from "next/link";
 
-export function Header() {
-  const { isLoading, coin: data } = useCoin();
+export async function Header() {
+  const response = await listCoin()
   return (
     <header
-      className="text-sm xl:max-w-[1240px] 2xl:max-w-[1400px] lg: container grid w-full grid-cols-[auto] grid-rows-[1fr_auto]   py-2 shadow-md
+      className="text-sm xl:max-w-[1240px] 2xl:max-w-[1400px] lg:container grid w-full grid-cols-[auto] grid-rows-[1fr_auto]   py-2 shadow-md
   md:px-[7rem] lg:grid-cols-[auto_1fr_auto] lg:grid-rows-1 lg:py-3 lg:shadow-none"
     >
-      <div className="flex w-full items-center ">
+      <div className="flex w-full items-center pl-3  lg:pl-0">
         <Link href="/" className="md:mr-10">
           <Image
             src="/logo.svg"
@@ -33,8 +32,8 @@ export function Header() {
           </Link>
         </nav>
       </div>
-      <Carrousel coinList={data} isLoading={isLoading} />
-      <div className="flex w-full items-center">
+      <Carrousel coinList={response}  />
+      <div className="flex w-full items-center pr-3 lg:pr-0">
         <div className="ml-auto  md:block  lg:hidden ">
           <DropdownMenu />
         </div>
