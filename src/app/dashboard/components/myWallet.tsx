@@ -1,11 +1,12 @@
 
 
+import { CoinData } from "@/@types/typeCoins";
 import { listCoin } from "@/data/fetchCoin";
 import ModalAddCrypto from "./ModalAddCrypto";
 import TableMyWallet from "./tableMyWallet";
 
 export default async function MyWallet() {
-  const response = await listCoin()
+  const response:CoinData = await listCoin()
 
   return (
     <>

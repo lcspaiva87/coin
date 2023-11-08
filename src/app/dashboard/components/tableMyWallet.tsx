@@ -12,8 +12,9 @@ import clsx from "clsx";
 import Image from "next/image";
 
 export default function TableMyWallet() {
-  const { isOpen, openModal, closeModal  } = useModalStore();
-  const { coin, isLoading ,isError } = useCoin();
+  const { isOpen, openModal, closeModal } = useModalStore();
+  const { coin, isLoading, isError } = useCoin();
+  /*flex flex-col items-center justify-center px-14 py-[10rem] text-center  */
   return (
     <div className="shadow-lg max-sm:shadow-none max-sm:bg-transparent rounded-lg bg-white ">
       <hr className=" mt-6 text-secondary-300 md:hidden" />
@@ -59,9 +60,17 @@ export default function TableMyWallet() {
           )}
         </div>
       </div>
-      <div className="flex flex-col items-center justify-center px-14 py-[10rem] text-center ">
-      {isLoading && !coin.length &&(<LoadingSpinner className="mx-auto" />)}
-        {!isLoading &&!coin.length && (
+
+      <div
+        className={clsx({
+          "flex flex-col items-center justify-center px-14  py-[6rem] lg:py-[10rem] text-center":
+            !coin.length && !isLoading,
+          "flex flex-col items-center justify-center px-14 pb-[15rem] text-center":
+            coin.length > 0,
+        })}
+      >
+        {isLoading && !coin.length && <LoadingSpinner className="flex justify-center py-[14rem] items-center" />}
+        {!isLoading && !coin.length && (
           <>
             <Icons.NoWallets className="h-12 md:h-[68px]" />
             <p className="mt-4 font-bold md:mt-6 md:text-h5">

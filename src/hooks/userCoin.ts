@@ -5,17 +5,7 @@ import { enqueueSnackbar } from "notistack";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 
 export const useCoin=(id?:typeListCoin[])=>{
-  // etchCreateOrder, {
-  //   onError: () => {
-  //     enqueueSnackbar("Erro ao criar cryptom, tente novamente", {
-  //       variant: "error",
-  //     });
-  //   },
-  //   onSuccess: () => {
-  //     queryClient.invalidateQueries(["Coin", id]);
-  //     enqueueSnackbar("cryptom criada com sucesso!", { variant: "success" });
-  //   },
-  // }
+
   const queryClient = useQueryClient();
   const createMutation = useMutation({
     mutationFn:fetchCreateOrder,
@@ -41,7 +31,6 @@ export const useCoin=(id?:typeListCoin[])=>{
     queryFn: () => fetListOrder(),
     staleTime: 30000
   })
-  console.log("isLoading",isLoading)
   return{
     coin: coin ?? [],
     createMutation,

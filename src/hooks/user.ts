@@ -55,7 +55,6 @@ export const userCreateOrder = () =>{
       enqueueSnackbar(erro, {
         variant: "error",
       });
-      console.log(erro)
     },
     onSuccess: (_,data) => {
       queryClient.setQueryData(["Order", undefined], (oldData: any) => {
