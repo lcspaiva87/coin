@@ -3,6 +3,7 @@ import { typeListCoin } from "@/@types/typeListCoin";
 import FormattedNumber from "@/app/(home)/components/formattedNumber";
 import Button from "@/components/ui/button";
 import { Icons } from "@/components/ui/icons";
+import { LoadingSpinner } from "@/components/ui/loadingSpinner";
 import { useCoin } from "@/hooks/userCoin";
 import useModalStore from "@/store/modal";
 
@@ -59,8 +60,16 @@ export default function TableMyWallet() {
         </div>
       </div>
 
-      <div className="flex flex-col items-center justify-center px-14 py-10 text-center ">
-        {/* {isLoading && !coin.length && <LoadingSpinner className="flex justify-center py-[14rem] items-center" />} */}
+      <div
+        className={clsx({
+          "flex flex-col items-center justify-center px-14  py-[6rem] lg:py-[10rem] text-center":
+            !coin.length && !isLoading,
+          "flex flex-col items-center justify-center px-14 pb-[15rem] text-center":
+            coin.length > 0,
+        })}
+      >
+        {isLoading && !coin.length && <LoadingSpinner className="flex justify-center py-[14rem] items-center" />}
+
         {!isLoading && !coin.length && (
           <>
             <Icons.NoWallets className="h-12 md:h-[68px]" />
