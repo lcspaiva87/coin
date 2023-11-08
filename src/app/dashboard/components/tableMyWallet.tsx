@@ -61,17 +61,12 @@ export default function TableMyWallet() {
       </div>
 
       <div
-        className={clsx({
-          "flex flex-col items-center justify-center px-14  py-[6rem] lg:py-[10rem] text-center":
-            !coin.length && !isLoading,
-          "flex flex-col items-center justify-center px-14 pb-[15rem] text-center":
-            coin.length > 0,
-        })}
+        className='flex flex-col items-center justify-center px-14 py-10 text-center '
       >
         {isLoading && !coin.length && <LoadingSpinner className="flex justify-center py-[14rem] items-center" />}
 
         {!isLoading && !coin.length && (
-          <>
+          <div className="max-h-[50rem] h-[25rem] flex items-center flex-col justify-center">
             <Icons.NoWallets className="h-12 md:h-[68px]" />
             <p className="mt-4 font-bold md:mt-6 md:text-h5">
               Nothing here yet...
@@ -79,7 +74,7 @@ export default function TableMyWallet() {
             <p className="mt-2 text-small-label md:text-label">
               Add a crypto and start earning
             </p>
-          </>
+          </div>
         )}
         {coin.length > 0 && (
           <div className=" max-h-[400px] w-full overflow-auto  scrollbar-hide">
