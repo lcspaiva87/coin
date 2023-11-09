@@ -13,7 +13,7 @@ export   default function NewsLetter() {
         aria-hidden
         className="absolute inset-0 h-full object-cover object-[60%] md:mt-0 md:object-[100%] lg:w-full lg:object-fill lg:object-left"
       />
-      <div className="container isolate z-10 flex flex-col justify-center py-14 md:flex-row md:gap-8 md:py-20 lg:gap-[239px] ">
+      <div className="px-3 lg:container isolate z-10 flex flex-col justify-center py-14 md:flex-row md:gap-8 md:py-20 lg:gap-[239px] ">
         <div className="md:w-full lg:w-[52rem]">
           <h2 className="font-bold text-primary-200 md:text-h5 md:!leading-8 lg:text-h4">
             Newsletter

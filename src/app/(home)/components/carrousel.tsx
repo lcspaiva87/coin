@@ -30,7 +30,7 @@ export default function Carrousel({
               {coinList.slice(0, 5).map((item:CoinData, index:number) => (
                 <div
                   className="flex flex-shrink-0 items-center gap-2 px-3 text-small-label"
-                  key={item?.lastId}
+                  key={index}
                 >
                   <span className="text-secondary-800">{item?.name}</span>
                   <span
