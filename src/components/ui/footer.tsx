@@ -3,7 +3,7 @@ import Logo from "/public/logo.svg";
 
 export const Footer = () => {
   return (
-    <footer className=" border-t-4  border-secondary-800/10  ">
+    <footer className=" border-t-4  border-secondary-800/10  bg-white  ">
         <div className=" justify-between flex items-center px-[1.5rem]   py-5 md:justify-between lg:py-6">
         <p className="hidden text-label md:block">
           Copyright © 2023 - All rights reserved

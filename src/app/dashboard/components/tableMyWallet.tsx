@@ -17,7 +17,7 @@ export default function TableMyWallet() {
   return (
     <div className="shadow-lg max-sm:shadow-none max-sm:bg-transparent rounded-lg bg-white  ">
       <hr className=" mt-6 text-secondary-300 md:hidden" />
-      <div className="flex mt-3 items-center gap-4 rounded-t-lg px-2  md:flex md:p-6">
+      <div className="flex mt-3 items-center gap-4 rounded-t-lg px-2  md:flex md:px-6">
         <Icons.CryptoWallet className="h-6 w-6 md:h-8 md:w-8 " />
         <span className="text-h5 font-bold md:text-h4">My Wallet</span>
         <Button
@@ -61,7 +61,7 @@ export default function TableMyWallet() {
       </div>
 
       <div
-        className='flex flex-col items-center justify-center px-14 py-10 text-center '
+        className='flex flex-col items-center justify-center px-14  text-center '
       >
         {isLoading && !coin.length && <LoadingSpinner className="flex justify-center py-[14rem] items-center" />}
 

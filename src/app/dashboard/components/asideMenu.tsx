@@ -23,8 +23,8 @@ export default function AsideMenu() {
   };
   // /absolute inset-y-0 left-0 z-20 hidden flex-col items-center gap-8 border-y border-secondary-300 bg-quaternary px-6 py-12 lg:flex
   return (
-    <aside className="px-[0.8rem] bg-white w-fit  space-y-8 flex flex-col max-md:hidden  ">
-      <nav className="  hidden flex-col items-center gap-8  border-secondary-300 bg-white px-[0.8rem] py-12 lg:flex">
+    <aside className="  px-[0.8rem] bg-white w-fit  space-y-8 flex flex-col max-md:hidden  ">
+      <nav className="  hidden flex-col items-center gap-8  border-secondary-300 bg-white  px-[0.8rem] py-12 lg:flex">
         {SidebarItemMock.map((item: SideBarType, index) => (
           <Popover
             key={item.id}

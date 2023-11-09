@@ -3,7 +3,6 @@ import { QueryProvider } from "@/provider/queryProvider";
 import { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "../globals.css";
-import Header from "./components/header";
 
 const roboto = Roboto({ subsets: ["latin"], weight: ["400", "700"] });
 
@@ -20,8 +19,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={(cn(roboto.className), "h-screen flex flex-col")}>
-        <Header />
+      <body className={(cn(roboto.className), "h-screen w-full ")}>
+
         <QueryProvider>{children}</QueryProvider>
 
       </body>
