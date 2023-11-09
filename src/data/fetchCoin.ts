@@ -1,5 +1,5 @@
-import { CoinData, ListCoinData } from "@/@types/typeCoins"
-import axios from "axios"
+import { CoinData, ListCoinData } from '@/@types/typeCoins'
+import axios from 'axios'
 
 export async function fetchCoin() {
   const response = await axios.get<ListCoinData[]>(
@@ -10,8 +10,9 @@ export async function fetchCoin() {
   return List
 }
 
-export async function listCoin(){
+export async function listCoin() {
   const response = await axios.get<CoinData>(
-    `${process.env.NEXT_PUBLIC_REST_API_COINS}`)
-    return response.data
+    `${process.env.NEXT_PUBLIC_REST_API_COINS}`,
+  )
+  return response.data
 }
