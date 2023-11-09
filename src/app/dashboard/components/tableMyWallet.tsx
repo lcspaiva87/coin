@@ -1,18 +1,17 @@
 "use client";
 import { typeListCoin } from "@/@types/typeListCoin";
 import FormattedNumber from "@/app/(home)/components/formattedNumber";
-import Button from "@/components/ui/button";
+import { default as Button } from "@/components/ui/button";
 import { Icons } from "@/components/ui/icons";
 import { LoadingSpinner } from "@/components/ui/loadingSpinner";
 import { useCoin } from "@/hooks/userCoin";
 import useModalStore from "@/store/modal";
 
-import { Popover, Transition } from "@headlessui/react";
 import clsx from "clsx";
 import Image from "next/image";
 
 export default function TableMyWallet() {
-  const { openModal,  } = useModalStore();
+  const { openModal } = useModalStore();
   const { coin, isLoading, isError } = useCoin();
   return (
     <div className="shadow-lg max-sm:shadow-none max-sm:bg-transparent rounded-lg bg-white  ">
@@ -60,10 +59,10 @@ export default function TableMyWallet() {
         </div>
       </div>
 
-      <div
-        className='flex flex-col items-center justify-center px-14  text-center '
-      >
-        {isLoading && !coin.length && <LoadingSpinner className="flex justify-center py-[14rem] items-center" />}
+      <div className="flex flex-col items-center justify-center px-14  text-center ">
+        {isLoading && !coin.length && (
+          <LoadingSpinner className="flex justify-center py-[14rem] items-center" />
+        )}
 
         {!isLoading && !coin.length && (
           <div className="max-h-[50rem] h-[25rem] flex items-center flex-col justify-center">
@@ -101,6 +100,8 @@ export default function TableMyWallet() {
   );
 }
 const SingleEntryCard = (coin: typeListCoin) => {
+  const { openModalTrade } = useModalStore();
+
   return (
     <div className="overflow-hidden   rounded-lg bg-white shadow-[0px_8px_16px_rgba(0,0,0,0.1)]">
       <div className="flex items-center bg-primary-100 px-2 py-4 text-small-label">
@@ -155,7 +156,7 @@ const SingleEntryCard = (coin: typeListCoin) => {
         <Button
           dataTest="trade-crypto-trade"
           className="w-full py-1"
-          onClick={() => {}}
+          onClick={openModalTrade}
         >
           Trade
         </Button>
@@ -245,35 +246,17 @@ const Th = ({
 };
 
 const TradePopover = ({ coin }: { coin: typeListCoin }) => {
-  return (
-    <Popover className="relative">
-      <Popover.Button
-        className="flex w-full items-center justify-center"
-        // onClick={() => {
-        //   setModalTransferringCrypto(true)
+  const { openModalTrade, setvalueTrade } = useModalStore();
 
-        //   setvalueTrade([coin])
-        // }}
-      >
-        <Icons.Trade className="h-4 w-4" />
-      </Popover.Button>
-      <Transition
-        enter="transition duration-100 ease-out"
-        enterFrom="transform scale-95 opacity-0"
-        enterTo="transform scale-100 opacity-100"
-        leave="transition duration-75 ease-out"
-        leaveFrom="transform scale-100 opacity-100"
-        leaveTo="transform scale-95 opacity-0"
-        className="absolute left-1/2 top-full isolate z-50 mt-4 flex origin-top -translate-x-1/2 items-center justify-center rounded bg-primary px-6 py-2 text-center shadow-[0px_4px_8px_rgba(0,0,0,0.1)]"
-      >
-        <Popover.Panel static>
-          <div
-            className="absolute -top-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 bg-primary"
-            aria-hidden
-          />
-          <span className="text-label text-white">Transfer Crypto</span>
-        </Popover.Panel>
-      </Transition>
-    </Popover>
+  return (
+    <button
+      className="flex w-full items-center justify-center"
+      onClick={() => {
+        openModalTrade();
+        setvalueTrade([coin]);
+      }}
+    >
+      <Icons.Trade className="h-4 w-4" />
+    </button>
   );
 };

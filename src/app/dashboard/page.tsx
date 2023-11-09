@@ -5,8 +5,8 @@ import { useCoinStore } from "@/store/coin";
 import axios from "axios";
 import { Metadata } from "next";
 import { cookies } from "next/headers";
-import CardBalance from "./components/_CardBalance";
 import AsideMenu from "./components/asideMenu";
+import CardBalance from "./components/cardBalance";
 import CardNFTNews from "./components/cardNFTNews";
 import DailyVariationCard from "./components/dailyVariationCard";
 import Header from "./components/header";
@@ -49,6 +49,7 @@ export default async function Dashboard() {
       </div>
 
       <Footer />
+
     </main>
   );
 }

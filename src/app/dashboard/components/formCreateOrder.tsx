@@ -17,8 +17,8 @@ type FormValues = {
   coin: any;
 };
 export default function FormCreateOrder({ userId, data }: any) {
-  const { createMutation, isLoading: loading, refetch } = useCoin();
-  const { isOpen, openModal, closeModal } = useModalStore();
+  const { createMutation, isLoading: loading } = useCoin();
+  const { isOpen, closeModal } = useModalStore();
 
   const signInFormSchema = yup.object().shape({
     amount: yup.number().required("amount obrigatório").min(0.00001),
@@ -62,7 +62,7 @@ export default function FormCreateOrder({ userId, data }: any) {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 z-40 bg-secondary-500 bg-opacity-75" />
+            <div className="fixed inset-0 z-40 bg-secondary-500/25 bg-opacity-75" />
           </Transition.Child>
 
           <div className="fixed inset-0 z-50 overflow-y-auto">

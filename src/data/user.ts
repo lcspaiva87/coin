@@ -26,6 +26,14 @@ interface RegisterInput {
   amount: number
   acronym: string
 }
+ type typeTrade = {
+  userId: string
+  idCoin: string
+  amount: number
+  nameCoin: string
+  type_trade: string
+}
+
 export const fetchLogin= async ({email,password}:User) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const response = await post<AuthToken>('/user/login',{
@@ -54,6 +62,12 @@ export const fetchCreateOrder= async ({acronym,amount,icon,name,percentage,price
 export const fetListOrder= async () => {
   const{'auth_token':token} = parseCookies()
   const response = await get('/coin',token);
+    return  response;
+}
+
+export const fetTradeOrder= async ({amount,idCoin,nameCoin,type_trade,userId}:typeTrade) => {
+  const{'auth_token':token} = parseCookies()
+  const response = await post('/coin/trade',{amount,idCoin,nameCoin,type_trade,userId},token);
     return  response;
 }
 
