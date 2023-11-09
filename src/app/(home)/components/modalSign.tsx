@@ -20,14 +20,14 @@ export default function ModalSignInTo({
         <BrandName />
       </h2>
       <FormLogin />
-      <div className="mt-4 text-small-label">
-        <span className="hidden md:inline">Don{"'"}t have an account? </span>
+      <div className="mt-4 text-small-label flex  items-center justify-center">
+        <span className="hidden text-xs md:inline">Don{"'"}t have an account? </span>
         <button
           onClick={() => {
             isOpenModalSignUp(true);
             isClose(false);
           }}
-          className="font-bold hover:underline"
+          className="font-bold  text-xs hover:underline"
         >
           Sign up to <BrandName />
         </button>

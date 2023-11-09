@@ -19,13 +19,14 @@ export  default function ModalSignUp({
         Sign in to <BrandName />
       </h2>
       <FormSignUp />
-      <div className="mt-4 text-small-label">
-        <span className="hidden md:inline">Already have and account? </span>
-        <button className="font-bold hover:underline"
+      <div className="mt-4 text-small-label flex  items-center justify-center">
+        <span className="hidden text-xs  md:inline">Already have and account? </span>
+        <button className="font-bold  text-xs hover:underline"
           onClick={() => {
             isOpenModalSignIn(true);
             isClose(false);
           }}
+
         >
           Sign in to <BrandName />
         </button>

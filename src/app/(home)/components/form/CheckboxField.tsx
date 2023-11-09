@@ -30,7 +30,7 @@ export default function CheckboxField({
           />
         )}
       />
-      <div className="flex items-start text-label">
+      <div className="flex items-start text-xs">
         <span>
           I have read and accept the <strong>Privacy Policy</strong> and{' '}
           <strong>Terms of User Sign Up</strong>
