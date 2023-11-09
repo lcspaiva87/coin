@@ -10,7 +10,7 @@ export default async function MyWallet() {
   const response:CoinData = await listCoin()
 
   return (
-    <div className="bg-white">
+    <div className="bg-white mb-[5rem]">
       <TableMyWallet />
       <ModalTrade />
       <ModalAddCrypto data={response} />
