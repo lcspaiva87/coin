@@ -17,7 +17,7 @@ export default function TableMyWallet() {
   return (
     <div className="shadow-lg max-sm:shadow-none max-sm:bg-transparent rounded-lg bg-white  ">
       <hr className=" mt-6 text-secondary-300 md:hidden" />
-      <div className="flex mt-3 items-center gap-4 rounded-t-lg px-2  md:flex md:px-6">
+      <div className="flex mt-3 items-center gap-4 rounded-t-lg px-2  md:flex md:px-[4rem] md:mt-[1.5rem]">
         <Icons.CryptoWallet className="h-6 w-6 md:h-8 md:w-8 " />
         <span className="text-h5 font-bold md:text-h4">My Wallet</span>
         <Button
@@ -77,8 +77,8 @@ export default function TableMyWallet() {
           </div>
         )}
         {coin.length > 0 && (
-          <div className=" max-h-[400px] w-full overflow-auto  scrollbar-hide">
-            <table className=" hidden w-full table-auto text-left md:table">
+          <div className=" max-h-[400px] w-full overflow-auto  scrollbar-hide lg:h-screen">
+            <table className=" hidden w-full  table-auto text-left md:table">
               <thead>
                 <tr className="text-left">
                   <Th className="w-1/12">#</Th>
@@ -88,7 +88,7 @@ export default function TableMyWallet() {
                   <Th className="w-1/12">Trade</Th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="">
                 {coin.map((coin: typeListCoin, index: number) => (
                   <Row coin={coin} index={index} key={coin.id} />
                 ))}
@@ -102,7 +102,7 @@ export default function TableMyWallet() {
 }
 const SingleEntryCard = (coin: typeListCoin) => {
   return (
-    <div className="overflow-hidden  rounded-lg bg-white shadow-[0px_8px_16px_rgba(0,0,0,0.1)]">
+    <div className="overflow-hidden   rounded-lg bg-white shadow-[0px_8px_16px_rgba(0,0,0,0.1)]">
       <div className="flex items-center bg-primary-100 px-2 py-4 text-small-label">
         <Image src={coin.icon} width={16} height={16} alt="" />
         <span className="ml-2 text-xs font-bold">{coin.name}</span>
