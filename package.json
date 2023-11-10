@@ -20,6 +20,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "cypress": "^13.5.0",
+    "eslint-plugin-cypress": "^2.15.1",
     "focus-trap-react": "^10.2.3",
     "framer-motion": "^10.16.4",
     "js-cookie": "^3.0.5",

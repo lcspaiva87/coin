@@ -1,4 +1,8 @@
 /// <reference types="cypress" />
+
+Cypress.Commands.add('getBydata',(value:string) => {
+  return cy.get(`[data-testid="${value}"]`);
+ });
 // ***********************************************
 // This example commands.ts shows you how to
 // create various custom commands and overwrite
@@ -31,7 +35,7 @@
 //       login(email: string, password: string): Chainable<void>
 //       drag(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
 //       dismiss(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
-//       visit(originalFn: CommandOriginalFn, url: string, options: Partial<VisitOptions>): Chainable<Element>
+//       visit(originalFn: CommandOriginalFn, url: string, options: Partial<VisitOptions>): Chainble<Element>
 //     }
 //   }
 // }

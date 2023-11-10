@@ -1,27 +1,27 @@
-'use client'
+"use client";
 import Button from "@/components/ui/button";
 import { Icons } from "@/components/ui/icons";
 import clsx from "clsx";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-
 export default function Hero() {
   return (
-
-      <section className="container mt-14 grid grid-flow-col ">
+    <section className="container mt-14 grid grid-flow-col ">
       <div className="flex flex-shrink-0 flex-col items-center justify-center text-center md:max-w-[25rem] md:items-start md:text-left">
-        <h1 className="text-h5 font-bold text-primary-400 md:text-h3">
+        <h1
+          data-testid="hero-title"
+          className="text-h5 font-bold text-primary-400 md:text-h3"
+        >
           Lorem ipsum dolor sit amet, consectetur
         </h1>
         <p className="mt-2 text-label md:text-base font-normal">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,{' '}
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,{" "}
           purus sit amet luctus venenatis, lectus magna fringilla urna,
           porttitor
         </p>
         <Button
           dataTest="button-sign-up-home"
-       
           className="mx-auto mt-6 flex min-w-[180px] items-center justify-center gap-2 uppercase md:mx-0 md:min-w-[232px] md:py-3"
         >
           Sign up now <Icons.ArrowRight />
@@ -38,20 +38,20 @@ export default function Hero() {
   );
 }
 const Carrousel = () => {
-  const [scrollX, setScrollX] = useState(0)
+  const [scrollX, setScrollX] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrollX(window.scrollY)
-    }
+      setScrollX(window.scrollY);
+    };
 
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [])
-  const translateX = -scrollX * 0.2
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  const translateX = -scrollX * 0.2;
 
   return (
     <div className="opacity-mask -mr-[48px] hidden flex-shrink-0 flex-grow-0 self-start md:flex lg:-mr-[112px]">
@@ -103,8 +103,8 @@ const Carrousel = () => {
         </CarrouselItem>
       </div>
     </div>
-  )
-}
+  );
+};
 const CarrouselImage = ({ src, alt }: { src: string; alt: string }) => {
   return (
     <Image
@@ -114,38 +114,38 @@ const CarrouselImage = ({ src, alt }: { src: string; alt: string }) => {
       alt={alt}
       className="isolate z-10 md:h-[280px] md:w-[215px] lg:h-[499px] lg:w-[384px]"
     />
-  )
-}
+  );
+};
 const CarrouselItem = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="relative isolate flex-shrink-0" aria-hidden>
       {children}
     </div>
-  )
-}
+  );
+};
 
 const CarrouselIcon = ({
   children,
   className,
 }: {
-  children: React.ReactNode
-  className?: string
+  children: React.ReactNode;
+  className?: string;
 }) => {
   return (
     <div
       className={clsx(
-        'absolute z-10 h-11 w-11 rounded-lg bg-primary-100 p-1 shadow-lg lg:h-20 lg:w-20',
+        "absolute z-10 h-11 w-11 rounded-lg bg-primary-100 p-1 shadow-lg lg:h-20 lg:w-20",
         className,
       )}
     >
       {children}
     </div>
-  )
-}
+  );
+};
 const Tag = ({ children }: { children: React.ReactNode }) => {
   return (
     <li className="rounded-[4px] bg-primary-100 px-4 py-1 text-primary-400">
       {children}
     </li>
-  )
-}
+  );
+};

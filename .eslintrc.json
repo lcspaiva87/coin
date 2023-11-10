@@ -2,6 +2,7 @@
   "extends": [
     "next/core-web-vitals",
     "@rocketseat/eslint-config/next"
-  ]
+  ],
+  "plugin:cypress/recommended": true,
 
 }
