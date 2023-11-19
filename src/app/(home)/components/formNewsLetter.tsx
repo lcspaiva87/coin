@@ -5,7 +5,6 @@ import { Control, useForm } from 'react-hook-form'
 import { Input } from '@/components/ui/Input'
 import Button from '@/components/ui/button'
 
-
 type FormValues = {
   emailForm: string
 }
@@ -35,7 +34,7 @@ export default function NewsLetterForm() {
   // }
 
   return (
-    <form  className="mt-10 md:w-[35rem]">
+    <form className="mt-10 md:w-[35rem]">
       <Input
         type="email"
         name="emailForm"

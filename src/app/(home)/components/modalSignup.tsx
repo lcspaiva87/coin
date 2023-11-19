@@ -16,7 +16,7 @@ export  default function ModalSignUp({
   return (
     <Modal isOpen={isOpen} isClose={isClose}>
       <h2 className="text-center">
-        Sign in to <BrandName />
+        Sign  up to <BrandName />
       </h2>
       <FormSignUp />
       <div className="mt-4 text-small-label flex  items-center justify-center">

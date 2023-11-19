@@ -1,13 +1,12 @@
-import { Footer } from "@/components/ui/footer";
-import { Header } from "@/components/ui/header";
-import Image from "next/image";
-import Hero from "./components/hero";
-import NewsLetter from "./components/newsLetter";
-import Solutions from "./components/solutions";
-import TopCryptos from "./components/topCryptos";
+import { Footer } from '@/components/ui/footer'
+import { Header } from '@/components/ui/header'
+import Image from 'next/image'
+import Hero from './components/hero'
+import NewsLetter from './components/newsLetter'
+import Solutions from './components/solutions'
+import TopCryptos from './components/topCryptos'
 
-export default  function Home() {
-
+export default function Home() {
   return (
     <>
       <Header />
@@ -22,8 +21,9 @@ export default  function Home() {
       />
       <Solutions />
       <TopCryptos />
+
       <NewsLetter />
       <Footer />
     </>
-  );
+  )
 }

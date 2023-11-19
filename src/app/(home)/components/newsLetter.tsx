@@ -1,8 +1,7 @@
-
 import Image from 'next/image'
 import NewsLetterForm from './formNewsLetter'
 
-export   default function NewsLetter() {
+export default function NewsLetter() {
   return (
     <section className="bg-gradient-newsletter relative mt-14 text-white">
       <Image
@@ -28,7 +27,6 @@ export   default function NewsLetter() {
           </p>
         </div>
         <NewsLetterForm />
-
       </div>
     </section>
   )
