@@ -72,3 +72,23 @@ You can find a live demo of the Coinsynch project at [coinsynch-delta.vercel.app
 - [React-query](https://tanstack.com/query/v3/)
 - [yup](https://github.com/jquense/yup)
 - [Zustand](https://github.com/pmndrs/zustand)
+
+## How to make it work on your machine
+Execute this command to install all dependencies
+```sh
+
+
+## 🤔 how to contribute
+- Fork this repository;
+- Create a branch with your feature: `git checkout -b my-feature`;
+- Commit your changes: `git commit -m 'feat: My new feature'`;
+- Push to your branch: `git push origin my-feature`.
+
+
+After your pull request is merged, you can delete your branch.
+
+---
+
+Made with ♥ by Lucas Antonio
+```
+
