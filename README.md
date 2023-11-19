@@ -19,8 +19,7 @@ $ git clone https://github.com/lcspaiva87/coin-synch && cd coin-synch
 yarn
 ##create a file in the root of the project called env.local and add these variables
 NEXT_PUBLIC_REST_API_ENDPOINT
-NEXT_PUBLIC_PAGE
-value of the variable NEXT_PUBLIC_PAGE if it is local, I put a dashboard if it is going to upload to the server, add Dashboard
+
 # start project
 yarn run dev
 
