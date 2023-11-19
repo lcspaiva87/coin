@@ -1,4 +1,5 @@
 # Coinsynch - Crypto Currency Wallet for Easy Transactions
+![coinsynch](https://github.com/lcspaiva87/coin/blob/master/public/project.png)
 
 Coinsynch is a fictional project developed as a technical challenge for a frontend programmer vacancy. It consists of a landing page that provides information about cryptocurrencies and a dashboard that allows users to manage their crypto wallet and transactions.
 
